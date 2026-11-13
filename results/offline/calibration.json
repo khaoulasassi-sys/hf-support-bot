@@ -1,0 +1,25 @@
+{
+  "n_dev": 33,
+  "feature_reranker": {
+    "n_rows": 660,
+    "n_pos": 66,
+    "coefficients": {
+      "dense": 0.6380000114440918,
+      "dense_gap": -0.5479999780654907,
+      "bm25_rel": 1.2730000019073486,
+      "fused_rel": 0.27399998903274536,
+      "coverage": 0.19300000369548798,
+      "title_cov": 1.055999994277954,
+      "bigram": 0.3310000002384186,
+      "ident": -0.3179999887943268
+    }
+  },
+  "confidence": {
+    "tau_high": 0.4233,
+    "tau_low": 0.3041
+  },
+  "target_precision": 0.9,
+  "max_wrongful_abstention": 0.15,
+  "dev_confident_precision": 0.9411764705882353,
+  "dev_confident_coverage": 0.5151515151515151
+}

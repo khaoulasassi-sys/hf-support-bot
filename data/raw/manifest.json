@@ -1,0 +1,550 @@
+{
+  "source": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en",
+  "fetched_at": "2026-11-13T10:52:25.644852+00:00",
+  "pages": [
+    {
+      "id": "index",
+      "file": "transformers/index.md",
+      "url": "https://huggingface.co/docs/transformers/index",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/index.md",
+      "bytes": 4732,
+      "sha256": "e24e0eddadccef8b15e3f25c55acb0df0f65de21a4b5bf709d119d22d0eb555b"
+    },
+    {
+      "id": "installation",
+      "file": "transformers/installation.md",
+      "url": "https://huggingface.co/docs/transformers/installation",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/installation.md",
+      "bytes": 8594,
+      "sha256": "0dd823361b6cf66ea1be9c80553e95f569e8f084f4c72f34fbc8dc53e138cb28"
+    },
+    {
+      "id": "quicktour",
+      "file": "transformers/quicktour.md",
+      "url": "https://huggingface.co/docs/transformers/quicktour",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quicktour.md",
+      "bytes": 12489,
+      "sha256": "20d63e71852595c83bb58c7c8181aab1786ccf735d78b10f7bf8fcd1aee89501"
+    },
+    {
+      "id": "models",
+      "file": "transformers/models.md",
+      "url": "https://huggingface.co/docs/transformers/models",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/models.md",
+      "bytes": 13355,
+      "sha256": "c8df2f1dd26c5c25fd594c717fea99ba638ff1e77f08691adb758fd93b6cf5d4"
+    },
+    {
+      "id": "custom_models",
+      "file": "transformers/custom_models.md",
+      "url": "https://huggingface.co/docs/transformers/custom_models",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/custom_models.md",
+      "bytes": 12969,
+      "sha256": "e2fbd35523b3e460fae3bc5920adc06f357ad47bb6b5a8852eb6718c33343543"
+    },
+    {
+      "id": "model_sharing",
+      "file": "transformers/model_sharing.md",
+      "url": "https://huggingface.co/docs/transformers/model_sharing",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/model_sharing.md",
+      "bytes": 7371,
+      "sha256": "47ccd678ad13268a2592049ddbfb7eb60b5743312c557c0e9fb6f79da56873b8"
+    },
+    {
+      "id": "serialization",
+      "file": "transformers/serialization.md",
+      "url": "https://huggingface.co/docs/transformers/serialization",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/serialization.md",
+      "bytes": 4816,
+      "sha256": "d3aebb19fc7e84bdd14b34e64563bf3f1470be334a30e77f67c5b0104796b0f4"
+    },
+    {
+      "id": "fast_tokenizers",
+      "file": "transformers/fast_tokenizers.md",
+      "url": "https://huggingface.co/docs/transformers/fast_tokenizers",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/fast_tokenizers.md",
+      "bytes": 13489,
+      "sha256": "f4da43cae344e16d72ec86ed2bc2e0386169725da462fc4e75c778d6c65989f7"
+    },
+    {
+      "id": "tokenizer_summary",
+      "file": "transformers/tokenizer_summary.md",
+      "url": "https://huggingface.co/docs/transformers/tokenizer_summary",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tokenizer_summary.md",
+      "bytes": 8603,
+      "sha256": "f9c73212d27f9af6e98f195448da7ffb04953a3742630aa98932843c1e2f4ccc"
+    },
+    {
+      "id": "pipeline_tutorial",
+      "file": "transformers/pipeline_tutorial.md",
+      "url": "https://huggingface.co/docs/transformers/pipeline_tutorial",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/pipeline_tutorial.md",
+      "bytes": 17067,
+      "sha256": "5044abb04c77a2554c9e9259c62dc9d121aca561885ce2bde16e6be5bbb0fdec"
+    },
+    {
+      "id": "pipeline_gradio",
+      "file": "transformers/pipeline_gradio.md",
+      "url": "https://huggingface.co/docs/transformers/pipeline_gradio",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/pipeline_gradio.md",
+      "bytes": 2215,
+      "sha256": "9551d8348bee8f15014532e1fb0a1548e36db64f687a153da71ec94547e4ee18"
+    },
+    {
+      "id": "pipeline_webserver",
+      "file": "transformers/pipeline_webserver.md",
+      "url": "https://huggingface.co/docs/transformers/pipeline_webserver",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/pipeline_webserver.md",
+      "bytes": 7002,
+      "sha256": "3c90168f2fac6f6edea256b6c171c1bac9fefcda55a2927ab744c853883e4c5c"
+    },
+    {
+      "id": "llm_tutorial",
+      "file": "transformers/llm_tutorial.md",
+      "url": "https://huggingface.co/docs/transformers/llm_tutorial",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/llm_tutorial.md",
+      "bytes": 15675,
+      "sha256": "eff6d8e41b8fe3256fd19d8c30e3c6202fbd1942d0061305e80c7723c7284881"
+    },
+    {
+      "id": "generation_strategies",
+      "file": "transformers/generation_strategies.md",
+      "url": "https://huggingface.co/docs/transformers/generation_strategies",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/generation_strategies.md",
+      "bytes": 19697,
+      "sha256": "cf819920c69ab4734988aa5f049f4922667ee109e7c2150467b149bfa05df15a"
+    },
+    {
+      "id": "generation_features",
+      "file": "transformers/generation_features.md",
+      "url": "https://huggingface.co/docs/transformers/generation_features",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/generation_features.md",
+      "bytes": 4784,
+      "sha256": "b825865b43bc39b9d0ac8e1c7ea4c16eec58f703d4452e6067c6d21da0f151bb"
+    },
+    {
+      "id": "tasks/prompting",
+      "file": "transformers/tasks__prompting.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/prompting",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/prompting.md",
+      "bytes": 14278,
+      "sha256": "0a971155873253325616d4c585bddf6376459957ed212757c61f4a04e831a829"
+    },
+    {
+      "id": "perf_torch_compile",
+      "file": "transformers/perf_torch_compile.md",
+      "url": "https://huggingface.co/docs/transformers/perf_torch_compile",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/perf_torch_compile.md",
+      "bytes": 3821,
+      "sha256": "1b29c7201ddc257fc7063f374631d9f55051f1b84c266892d9073479779c8c74"
+    },
+    {
+      "id": "cache_explanation",
+      "file": "transformers/cache_explanation.md",
+      "url": "https://huggingface.co/docs/transformers/cache_explanation",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/cache_explanation.md",
+      "bytes": 7942,
+      "sha256": "7191ad30202c4dad646065807da67ab9ab1d9d32b559050c483256138cb7d3b2"
+    },
+    {
+      "id": "kv_cache",
+      "file": "transformers/kv_cache.md",
+      "url": "https://huggingface.co/docs/transformers/kv_cache",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/kv_cache.md",
+      "bytes": 22780,
+      "sha256": "4ff0229af1a7a99b471d96f9f416225785b56f95050692041c370a1f6e7761b7"
+    },
+    {
+      "id": "assisted_decoding",
+      "file": "transformers/assisted_decoding.md",
+      "url": "https://huggingface.co/docs/transformers/assisted_decoding",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/assisted_decoding.md",
+      "bytes": 13228,
+      "sha256": "bbfdaccba64e386235cfd40d320dffe04a1c1556d225213e4160229c03251a18"
+    },
+    {
+      "id": "llm_tutorial_optimization",
+      "file": "transformers/llm_tutorial_optimization.md",
+      "url": "https://huggingface.co/docs/transformers/llm_tutorial_optimization",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/llm_tutorial_optimization.md",
+      "bytes": 46239,
+      "sha256": "5aac6bd668e5177449a7e74ce7d3559c3bf8bdd38a1b49b1f0d9c452e8177b4c"
+    },
+    {
+      "id": "conversations",
+      "file": "transformers/conversations.md",
+      "url": "https://huggingface.co/docs/transformers/conversations",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/conversations.md",
+      "bytes": 7268,
+      "sha256": "7f1ae08daa6ab9d0f15395a15f157133a190f4cb28f39ff1e08d4765c5e27545"
+    },
+    {
+      "id": "chat_templating",
+      "file": "transformers/chat_templating.md",
+      "url": "https://huggingface.co/docs/transformers/chat_templating",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/chat_templating.md",
+      "bytes": 12305,
+      "sha256": "9fdbfc07eca7619d7fd7730cd758cb6620d1edfffb23d2cbd522e5967c01c4fa"
+    },
+    {
+      "id": "chat_extras",
+      "file": "transformers/chat_extras.md",
+      "url": "https://huggingface.co/docs/transformers/chat_extras",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/chat_extras.md",
+      "bytes": 10410,
+      "sha256": "9a9adcafcb6e72e85e2e9f0d641e638ad5545c88a384384cbbf7e2817f754876"
+    },
+    {
+      "id": "serve-cli/serving",
+      "file": "transformers/serve-cli__serving.md",
+      "url": "https://huggingface.co/docs/transformers/serve-cli/serving",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/serve-cli/serving.md",
+      "bytes": 78957,
+      "sha256": "14777a3841091abeae224cdd0f37b50b27bfc04c61a01541aecfeb15819647b2"
+    },
+    {
+      "id": "trainer",
+      "file": "transformers/trainer.md",
+      "url": "https://huggingface.co/docs/transformers/trainer",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/trainer.md",
+      "bytes": 1762,
+      "sha256": "e7c5368c1223c2b195321468fcd1ac64c5cda52a1e44d4adf854a6473b6c9ee0"
+    },
+    {
+      "id": "training",
+      "file": "transformers/training.md",
+      "url": "https://huggingface.co/docs/transformers/training",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/training.md",
+      "bytes": 8862,
+      "sha256": "1a12e1548b0a0d05db5ea7bf2c117e76addbd875948e57a261dbeeee41a6ff48"
+    },
+    {
+      "id": "trainer_callbacks",
+      "file": "transformers/trainer_callbacks.md",
+      "url": "https://huggingface.co/docs/transformers/trainer_callbacks",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/trainer_callbacks.md",
+      "bytes": 6198,
+      "sha256": "4c72ba775041680ca88387c0cc2caeb67bde71f25e32f8a76d39c59a4c4117f8"
+    },
+    {
+      "id": "data_collators",
+      "file": "transformers/data_collators.md",
+      "url": "https://huggingface.co/docs/transformers/data_collators",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/data_collators.md",
+      "bytes": 5053,
+      "sha256": "9b90045042053bec44c04a43c24712761f694e6feb4cfb457b509ffff8a49077"
+    },
+    {
+      "id": "optimizers",
+      "file": "transformers/optimizers.md",
+      "url": "https://huggingface.co/docs/transformers/optimizers",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/optimizers.md",
+      "bytes": 15505,
+      "sha256": "592a8faae28b5a93ce18c1abb551b8940a63cb5028fa2c2be93bcec353740f1e"
+    },
+    {
+      "id": "hpo_train",
+      "file": "transformers/hpo_train.md",
+      "url": "https://huggingface.co/docs/transformers/hpo_train",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/hpo_train.md",
+      "bytes": 4787,
+      "sha256": "09d65cf4e6fd0fe96b87ce13302ccf1a0576cbcd843ff9e1bbd9a31af8952fda"
+    },
+    {
+      "id": "trainer_recipes",
+      "file": "transformers/trainer_recipes.md",
+      "url": "https://huggingface.co/docs/transformers/trainer_recipes",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/trainer_recipes.md",
+      "bytes": 15235,
+      "sha256": "6e684cdd466fe4e37b7c0310a6143c29ff2b71c1d472648f1a5cb1d4d4216653"
+    },
+    {
+      "id": "peft",
+      "file": "transformers/peft.md",
+      "url": "https://huggingface.co/docs/transformers/peft",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/peft.md",
+      "bytes": 10375,
+      "sha256": "97144da5d061bcec33640c4c5b9c56672838569e65abf5903842a940091369f4"
+    },
+    {
+      "id": "grad_accumulation",
+      "file": "transformers/grad_accumulation.md",
+      "url": "https://huggingface.co/docs/transformers/grad_accumulation",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/grad_accumulation.md",
+      "bytes": 4104,
+      "sha256": "4ca12b4147c99dd3b8baef577a005d35d1eb533ec34e1b6a34508b21bebbc41a"
+    },
+    {
+      "id": "grad_checkpointing",
+      "file": "transformers/grad_checkpointing.md",
+      "url": "https://huggingface.co/docs/transformers/grad_checkpointing",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/grad_checkpointing.md",
+      "bytes": 4656,
+      "sha256": "80f97cd48840167ea02f0414d7d5776a005ed56177315550397c9a22b38da763"
+    },
+    {
+      "id": "model_memory_anatomy",
+      "file": "transformers/model_memory_anatomy.md",
+      "url": "https://huggingface.co/docs/transformers/model_memory_anatomy",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/model_memory_anatomy.md",
+      "bytes": 6212,
+      "sha256": "4dba1480620920767f4f1d25ab00dcc72ce2461646388f0daa5af649c32e1f1c"
+    },
+    {
+      "id": "mixed_precision_training",
+      "file": "transformers/mixed_precision_training.md",
+      "url": "https://huggingface.co/docs/transformers/mixed_precision_training",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/mixed_precision_training.md",
+      "bytes": 4068,
+      "sha256": "47c616b9a4895e8627fae2387a191f4f3b49bf8f1ca8a29be43fbb2851c45ce2"
+    },
+    {
+      "id": "accelerate",
+      "file": "transformers/accelerate.md",
+      "url": "https://huggingface.co/docs/transformers/accelerate",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/accelerate.md",
+      "bytes": 4654,
+      "sha256": "6e0e9dfb08930e6ee3ac48d3aa7f1cc2a24c075fb8353600c0d64fa1288de1ad"
+    },
+    {
+      "id": "ddp",
+      "file": "transformers/ddp.md",
+      "url": "https://huggingface.co/docs/transformers/ddp",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/ddp.md",
+      "bytes": 5689,
+      "sha256": "46acb161f6f581e5dfc3dc9947d875e0d009fedd861968fe874f450878363f2c"
+    },
+    {
+      "id": "fsdp",
+      "file": "transformers/fsdp.md",
+      "url": "https://huggingface.co/docs/transformers/fsdp",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/fsdp.md",
+      "bytes": 9554,
+      "sha256": "013951b5328fb45eba96489025ce4135fbf18857bf423384d1b2b70b06d55629"
+    },
+    {
+      "id": "deepspeed",
+      "file": "transformers/deepspeed.md",
+      "url": "https://huggingface.co/docs/transformers/deepspeed",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/deepspeed.md",
+      "bytes": 12652,
+      "sha256": "97bfcda1af8bd3bc7745cce39edb4a49695e996f3e606bfe7759709d14fd2ccb"
+    },
+    {
+      "id": "debugging",
+      "file": "transformers/debugging.md",
+      "url": "https://huggingface.co/docs/transformers/debugging",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/debugging.md",
+      "bytes": 18029,
+      "sha256": "dbddfa0e330618a18ad38dd44c2faec3394e03613496f9ee9b2445ac67326524"
+    },
+    {
+      "id": "perf_train_gpu_many",
+      "file": "transformers/perf_train_gpu_many.md",
+      "url": "https://huggingface.co/docs/transformers/perf_train_gpu_many",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/perf_train_gpu_many.md",
+      "bytes": 9067,
+      "sha256": "7abddb29f95886eb859bcc029f9acd12a0227bf0950c2aaf40623b96a28551f4"
+    },
+    {
+      "id": "hardware",
+      "file": "transformers/hardware.md",
+      "url": "https://huggingface.co/docs/transformers/hardware",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/hardware.md",
+      "bytes": 3760,
+      "sha256": "9f495a7e954bb27cc72d766953f3d2e3b040a85af7d86e551c2cdab9be52f332"
+    },
+    {
+      "id": "apple_silicon",
+      "file": "transformers/apple_silicon.md",
+      "url": "https://huggingface.co/docs/transformers/apple_silicon",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/apple_silicon.md",
+      "bytes": 8080,
+      "sha256": "a64580af396ee2efb270d1edc310e5deba9c43297d8b820e6c0623fd87948281"
+    },
+    {
+      "id": "cpu",
+      "file": "transformers/cpu.md",
+      "url": "https://huggingface.co/docs/transformers/cpu",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/cpu.md",
+      "bytes": 5260,
+      "sha256": "ddf7d41392221808475f6dd128740ff26dfc63c079c29db6d27de89094eeccc9"
+    },
+    {
+      "id": "nvidia_gpu",
+      "file": "transformers/nvidia_gpu.md",
+      "url": "https://huggingface.co/docs/transformers/nvidia_gpu",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/nvidia_gpu.md",
+      "bytes": 6681,
+      "sha256": "6dcb5bb5213c1c630b006f3d4ea9e2ce44694bcff41183fc1c049d0c5a02016a"
+    },
+    {
+      "id": "amd_gpu",
+      "file": "transformers/amd_gpu.md",
+      "url": "https://huggingface.co/docs/transformers/amd_gpu",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/amd_gpu.md",
+      "bytes": 9202,
+      "sha256": "9dce4759331558a403a8a8a1e79ed18450b64bf841c14e047659200c95979821"
+    },
+    {
+      "id": "quantization/overview",
+      "file": "transformers/quantization__overview.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/overview",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/overview.md",
+      "bytes": 6079,
+      "sha256": "3b0837e7a1138543d57d6bea64b58d4ac7d7d1496fbabb9116621f97e11a1427"
+    },
+    {
+      "id": "quantization/concept_guide",
+      "file": "transformers/quantization__concept_guide.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/concept_guide",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/concept_guide.md",
+      "bytes": 13470,
+      "sha256": "797eaaabc92099cefb3e074d89af7d9378ac38a764514d85922b1fb6dbe57eee"
+    },
+    {
+      "id": "quantization/selecting",
+      "file": "transformers/quantization__selecting.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/selecting",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/selecting.md",
+      "bytes": 7548,
+      "sha256": "d1ff04d9822e181a0ae5e6c1f56ff7d246a98016be82ee367a84106eca4cd5d9"
+    },
+    {
+      "id": "quantization/save",
+      "file": "transformers/quantization__save.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/save",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/save.md",
+      "bytes": 3242,
+      "sha256": "6e5a82322e80978cec87307037835b1cbc891ece654b634b8da88ceecedcb080"
+    },
+    {
+      "id": "quantization/bitsandbytes",
+      "file": "transformers/quantization__bitsandbytes.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/bitsandbytes",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/bitsandbytes.md",
+      "bytes": 14910,
+      "sha256": "e34fd6f1daa0c1ba3d75ba932352042434dcd54c4135e1a90635750410e76a1a"
+    },
+    {
+      "id": "quantization/gptq",
+      "file": "transformers/quantization__gptq.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/gptq",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/gptq.md",
+      "bytes": 6602,
+      "sha256": "5f25b64f2137cf499cea9c4a3ba547e1ce3618ce2f927e6385a317e8501e54c0"
+    },
+    {
+      "id": "quantization/awq",
+      "file": "transformers/quantization__awq.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/awq",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/awq.md",
+      "bytes": 10704,
+      "sha256": "fda8ab567d8b97ecaec19b3002ac7b7e2b874f510e13b629d14c93ddb2c90991"
+    },
+    {
+      "id": "quantization/gguf",
+      "file": "transformers/quantization__gguf.md",
+      "url": "https://huggingface.co/docs/transformers/quantization/gguf",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/quantization/gguf.md",
+      "bytes": 4463,
+      "sha256": "68e4f57f49d2ed6a3811eab486f1aac925675056f69d4db917a088688273c1bf"
+    },
+    {
+      "id": "tasks/sequence_classification",
+      "file": "transformers/tasks__sequence_classification.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/sequence_classification",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/sequence_classification.md",
+      "bytes": 10277,
+      "sha256": "0d784d930fe426c3f86783141e7a9d2389e1885533792c611c094ab0155a8402"
+    },
+    {
+      "id": "tasks/token_classification",
+      "file": "transformers/tasks__token_classification.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/token_classification",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/token_classification.md",
+      "bytes": 13828,
+      "sha256": "e8dd4bcfe1db653d887d42937961b5f1c033fe40c39be45bd18f33fe45fd86f5"
+    },
+    {
+      "id": "tasks/question_answering",
+      "file": "transformers/tasks__question_answering.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/question_answering",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/question_answering.md",
+      "bytes": 11367,
+      "sha256": "7d675c010016e3438b5f915ddf2968a60616f489874367d2305c49e10e16ed9e"
+    },
+    {
+      "id": "tasks/summarization",
+      "file": "transformers/tasks__summarization.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/summarization",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/summarization.md",
+      "bytes": 17589,
+      "sha256": "06bd75d9888bc7eac3eeb6f7d62728f71b144bf382307a60a8b07a55dd512102"
+    },
+    {
+      "id": "tasks/translation",
+      "file": "transformers/tasks__translation.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/translation",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/translation.md",
+      "bytes": 10314,
+      "sha256": "d43c52f0b9e94af2c69a520592c86353cdefe5db4b83dc6af0a38f64bcebb11b"
+    },
+    {
+      "id": "tasks/language_modeling",
+      "file": "transformers/tasks__language_modeling.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/language_modeling",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/language_modeling.md",
+      "bytes": 13922,
+      "sha256": "6dcf5ada2e200da8cdae2da88b4ad40028e4231060a194f439dd3d94673063fe"
+    },
+    {
+      "id": "tasks/asr",
+      "file": "transformers/tasks__asr.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/asr",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/asr.md",
+      "bytes": 14713,
+      "sha256": "1d50e7cba6e19b195a87280c04d6476ac6ca79d64b4176d8f38211474e1b3473"
+    },
+    {
+      "id": "tasks/image_classification",
+      "file": "transformers/tasks__image_classification.md",
+      "url": "https://huggingface.co/docs/transformers/tasks/image_classification",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/tasks/image_classification.md",
+      "bytes": 10974,
+      "sha256": "3598d32b16422bbcfe733f1ab7fdda7a3dfb4aff0b341a764ba7d515eccc1c78"
+    },
+    {
+      "id": "troubleshooting",
+      "file": "transformers/troubleshooting.md",
+      "url": "https://huggingface.co/docs/transformers/troubleshooting",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/troubleshooting.md",
+      "bytes": 7832,
+      "sha256": "e72a9c9545ee341df5d899f8ac7d79b1a05372f278ab0ba2165bb47c41eca094"
+    },
+    {
+      "id": "reference/environment_variables",
+      "file": "transformers/reference__environment_variables.md",
+      "url": "https://huggingface.co/docs/transformers/reference/environment_variables",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/reference/environment_variables.md",
+      "bytes": 3832,
+      "sha256": "1e5c022fb1af02cf1ebed3e996624de2c39d1e3aa5cf97526c846d6a3c6cac09"
+    },
+    {
+      "id": "glossary",
+      "file": "transformers/glossary.md",
+      "url": "https://huggingface.co/docs/transformers/glossary",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/glossary.md",
+      "bytes": 26063,
+      "sha256": "37a863807ea204b5e5821af8f4da1e00270c4e24a15dafa2d31c2a9affc96448"
+    },
+    {
+      "id": "community_integrations/llama_cpp",
+      "file": "transformers/community_integrations__llama_cpp.md",
+      "url": "https://huggingface.co/docs/transformers/community_integrations/llama_cpp",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/main/docs/source/en/community_integrations/llama_cpp.md",
+      "bytes": 2977,
+      "sha256": "ec6601d5f90b009b5e13d09e316f4737f89282c31dafbd12536f8d9d7beaa563"
+    }
+  ]
+}

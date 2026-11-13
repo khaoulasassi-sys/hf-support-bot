@@ -1,0 +1,75 @@
+[
+  {
+    "scenario": "Question simple (réponse confiante)",
+    "turns": [
+      {
+        "user": "How do I load a model in 4-bit using bitsandbytes?",
+        "bot": "**Answer (extracted from the documentation)**\n\n- The example below loads an 8B model in 4 bits with bitsandbytes. [1]\n- You should use NF4 for training 4-bit base models. [3]\n- However, to remain consistent with the model weights, you should use the `bnb_4bit_compute_dtype` and `dtype` values. [3]\n\n**Code example** [1]\n```py\nimport torch\nfrom transformers import AutoModelForCausalLM, BitsAndBytesConfig\n\nquantization_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_compute_dtype=torch.bfloat16,\n)\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"meta-llama/Llama-3.1-8B-Instruct\",\n    quantization_config=quantization_config,\n    device_map=\"auto\",\n)\n```\n\n**Sources**\n[1] Overview > Quantize a model while loading — https://huggingface.co/docs/transformers/quantization/overview#quantize-a-model-while-loading\n[2] Bitsandbytes > Dequantizing bitsandbytes models — https://huggingface.co/docs/transformers/quantization/bitsandbytes#dequantizing-bitsandbytes-models\n[3] Bitsandbytes > QLoRA > Normal Float 4 (NF4) — https://huggingface.co/docs/transformers/quantization/bitsandbytes#normal-float-4-nf4\n[4] Apple Silicon > Quantize models — https://huggingface.co/docs/transformers/apple_silicon#quantize-models",
+        "decision": "confident",
+        "confidence": 0.964,
+        "escalation": false,
+        "retrieval_query": "How do I load a model in 4-bit using bitsandbytes?"
+      }
+    ]
+  },
+  {
+    "scenario": "Question de suivi (historique)",
+    "turns": [
+      {
+        "user": "How do I enable gradient accumulation in the Trainer?",
+        "bot": "**Answer (extracted from the documentation)**\n\n- This normalizes by tokens rather than a fixed step count with `gradient_accumulation_steps`. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- If you subclass `Trainer` and override `Trainer.compute_loss`, set `loss_is_scaled_for_ga` to say how your loss is normalized: `False` for a per-batch mean, which `Trainer` then divides by `gradient_accumulation_steps`, or `True` if you already divided it by `num_items_in_batch`. [1]\n\n**Code example** [2]\n```py\nfrom transformers import TrainingArguments\n\nargs = TrainingArguments(\n    ...,\n    per_device_train_batch_size=8,\n    gradient_accumulation_steps=4,\n)\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[3] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps\n[4] Trainer features > Memory-efficient evals > eval_accumulation_steps — https://huggingface.co/docs/transformers/trainer_recipes#evalaccumulationsteps",
+        "decision": "confident",
+        "confidence": 0.918,
+        "escalation": false,
+        "retrieval_query": "How do I enable gradient accumulation in the Trainer?"
+      },
+      {
+        "user": "and how does it affect the loss?",
+        "bot": "**Answer (extracted from the documentation)**\n\n- For a custom loss function, include `num_items_in_batch` so `Trainer` divides the loss by the number of prediction targets across all mini-batches. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- The loss shifts labels so the prediction at position `i` targets the token at position `i + 1`, which leaves position 0 of every sequence without a target. [1]\n\n**Code example** [1]\n```py\nimport torch.nn.functional as F\n\ndef compute_loss(outputs, labels, num_items_in_batch=None):\n    logits = outputs[\"logits\"]\n    loss = F.cross_entropy(logits, labels, reduction=\"sum\")\n    return loss / num_items_in_batch\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Trainer features > Custom loss function — https://huggingface.co/docs/transformers/trainer_recipes#custom-loss-function\n[3] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[4] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps",
+        "decision": "confident",
+        "confidence": 0.882,
+        "escalation": false,
+        "retrieval_query": "How do I enable gradient accumulation in the Trainer? and how does it affect the loss?"
+      }
+    ]
+  },
+  {
+    "scenario": "Hors périmètre (refus)",
+    "turns": [
+      {
+        "user": "How do I deploy my web app on AWS Lambda?",
+        "bot": "I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.",
+        "decision": "no_answer",
+        "confidence": 0.227,
+        "escalation": true,
+        "retrieval_query": "How do I deploy my web app on AWS Lambda?"
+      }
+    ]
+  },
+  {
+    "scenario": "Question vague (incertitude / escalade)",
+    "turns": [
+      {
+        "user": "My model is slow.",
+        "bot": "I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.",
+        "decision": "no_answer",
+        "confidence": 0.135,
+        "escalation": true,
+        "retrieval_query": "My model is slow."
+      }
+    ]
+  },
+  {
+    "scenario": "Demande d'un humain",
+    "turns": [
+      {
+        "user": "Can I speak to a human please?",
+        "bot": "Understood — I'm creating a ticket for a human expert, with a summary of our conversation.",
+        "decision": "human_requested",
+        "confidence": 1.0,
+        "escalation": true,
+        "retrieval_query": "Can I speak to a human please?"
+      }
+    ]
+  }
+]

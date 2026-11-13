@@ -1,0 +1,47 @@
+# Profil "offline" : aucune dépendance réseau (embeddings WordLlama fournis avec le paquet pip,
+# re-ranker = modèle appris à partir de plusieurs signaux). Sert aux tests, à la CI et aux
+# environnements sans accès à HuggingFace.
+profile: offline
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  index_dir: data/index
+  log_dir: logs
+chunking:
+  max_words: 220
+  overlap_words: 40
+  min_words: 25
+embedding:
+  backend: wordllama
+  model: l2_supercat_256
+  query_prefix: ""
+  passage_prefix: ""
+  batch_size: 256
+retrieval:
+  mode: hybrid
+  k_dense: 30
+  k_bm25: 30
+  k_candidates: 20
+  rrf_k: 60
+rerank:
+  backend: feature
+  model: results/offline/feature_reranker.joblib
+  top_n: 4
+  max_length: 512
+confidence:
+  tau_high: 0.50
+  tau_low: 0.10
+llm:
+  backend: extractive
+  model: qwen2.5:3b-instruct
+  base_url: http://localhost:11434/v1
+  api_key_env: OPENAI_API_KEY
+  hf_model: Qwen/Qwen2.5-1.5B-Instruct
+  temperature: 0.1
+  max_tokens: 700
+  timeout_s: 120
+history:
+  max_turns: 3
+logging:
+  queries_file: queries.jsonl
+  escalations_file: escalations.jsonl
