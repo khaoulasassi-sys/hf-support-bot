@@ -126,7 +126,7 @@ def load_documents(raw_dir: Path) -> list[Document]:
     manifest_path = raw_dir / "manifest.json"
     by_file: dict[str, dict] = {}
     if manifest_path.exists():
-        for p in json.loads(manifest_path.read_text())["pages"]:
+        for p in json.loads(manifest_path.read_text(encoding="utf-8"))["pages"]:
             by_file[p["file"]] = p
     docs: list[Document] = []
     for path in sorted(raw_dir.rglob("*")):

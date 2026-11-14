@@ -115,7 +115,7 @@ def test_pipeline_decisions_logging_escalation(chunks, fake_embedder, tmp_path):
     assert r3.decision == "human_requested" and r3.escalation_suggested
     t = bot.escalate(r2.question, [("q", "a")], r2.escalation_reason, r2)
     assert t["ticket_id"].startswith("T-") and t["bot_decision"] == "no_answer"
-    log = [json.loads(l) for l in (tmp_path / "queries.jsonl").read_text().splitlines()]
+    log = [json.loads(l) for l in (tmp_path / "queries.jsonl").read_text(encoding="utf-8").splitlines()]
     assert [x["decision"] for x in log] == ["confident", "no_answer", "human_requested"]
     assert "retrieve" in log[0]["latency_ms"] and log[0]["top_sources"]
     assert (tmp_path / "escalations.jsonl").exists()
@@ -135,7 +135,7 @@ def test_llm_failure_falls_back_to_extractive(chunks, fake_embedder, tmp_path, s
     bot = _bot(chunks, fake_embedder, tmp_path, llm=llm, tau=(0.0, 0.0), reranker=LexicalStub())
     r = bot.answer("gradient accumulation steps")
     assert "unavailable" in r.answer and "**Sources**" in r.answer
-    assert json.loads((tmp_path / "queries.jsonl").read_text().splitlines()[-1])["llm_error"]
+    assert json.loads((tmp_path / "queries.jsonl").read_text(encoding="utf-8").splitlines()[-1])["llm_error"]
 
 
 def test_language_and_extractive_format(chunks, fake_embedder):

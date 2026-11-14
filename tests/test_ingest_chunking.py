@@ -53,8 +53,8 @@ def test_html_and_pdf_loaders(tmp_path):
 
 def test_load_documents_uses_manifest(tmp_path):
     (tmp_path / "transformers").mkdir()
-    (tmp_path / "transformers" / "a__b.md").write_text("# T\n\nbody text here")
-    (tmp_path / "manifest.json").write_text('{"pages":[{"id":"a/b","file":"transformers/a__b.md","url":"https://u/a/b"}]}')
+    (tmp_path / "transformers" / "a__b.md").write_text("# T\n\nbody text here", encoding="utf-8")
+    (tmp_path / "manifest.json").write_text('{"pages":[{"id":"a/b","file":"transformers/a__b.md","url":"https://u/a/b"}]}', encoding="utf-8")
     docs = load_documents(tmp_path)
     assert docs[0].doc_id == "a/b" and docs[0].url == "https://u/a/b"
 

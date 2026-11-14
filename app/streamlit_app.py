@@ -68,7 +68,7 @@ with st.sidebar:
     st.divider()
     st.subheader("🎫 Tickets d'escalade")
     esc = resolve(bot.cfg, "log_dir") / bot.cfg["logging"]["escalations_file"]
-    tickets = [json.loads(l) for l in esc.read_text().splitlines()] if esc.exists() else []
+    tickets = [json.loads(l) for l in esc.read_text(encoding="utf-8").splitlines()] if esc.exists() else []
     st.write(f"{len(tickets)} ticket(s) ouvert(s)")
     for t in tickets[-5:][::-1]:
         st.caption(f"**{t['ticket_id']}** — {t['question'][:60]}")

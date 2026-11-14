@@ -25,5 +25,5 @@ for title, qs in SCENARIOS.items():
         hist.append((q, r.answer))
     out.append({"scenario": title, "turns": turns})
 d = Path(__file__).resolve().parents[1] / "results" / bot.cfg["profile"]
-(d / f"conversations_{llm}.json").write_text(json.dumps(out, indent=2, ensure_ascii=False))
+(d / f"conversations_{llm}.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
 print("ok", d)

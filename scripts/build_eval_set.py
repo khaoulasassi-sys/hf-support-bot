@@ -143,7 +143,7 @@ def main():
         counters[k] = counters.get(k, 0) + 1
         r["split"] = "dev" if counters[k] % 3 == 1 else "test"
     out = Path(__file__).resolve().parents[1] / "data" / "eval" / "questions.jsonl"
-    out.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n")
+    out.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
     from collections import Counter
     print(len(rows), "questions", Counter((r["category"], r["split"]) for r in rows))
 

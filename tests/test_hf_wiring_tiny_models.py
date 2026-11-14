@@ -19,7 +19,7 @@ def tiny_dirs(tmp_path_factory):
     root = tmp_path_factory.mktemp("tiny")
     words = "how do i install the library with pip gradient accumulation steps cake recipe query passage".split()
     vocab = ["[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]"] + words
-    (root / "vocab.txt").write_text("\n".join(vocab))
+    (root / "vocab.txt").write_text("\n".join(vocab), encoding="utf-8")
     tok = BertTokenizerFast(str(root / "vocab.txt"), do_lower_case=True)
     cfg = dict(vocab_size=len(vocab), hidden_size=16, num_hidden_layers=1, num_attention_heads=2,
                intermediate_size=32, max_position_embeddings=64)

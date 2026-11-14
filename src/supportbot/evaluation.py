@@ -112,7 +112,7 @@ def calibrate(profile: str, overrides: dict | None = None) -> dict:
                  "target_precision": TARGET_PRECISION, "max_wrongful_abstention": MAX_WRONGFUL_ABSTENTION,
                  "dev_confident_precision": float(oks[confs >= tau_high].mean()) if (confs >= tau_high).any() else None,
                  "dev_confident_coverage": float((confs >= tau_high).mean())})
-    (out_dir / "calibration.json").write_text(json.dumps(info, indent=2))
+    (out_dir / "calibration.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
     print(json.dumps(info, indent=2))
     return info
 
@@ -141,7 +141,7 @@ def evaluate(profile: str, overrides: dict | None = None, split: str = "test") -
     qs = load_questions(split)
     metrics: dict = {"profile": cfg["profile"], "split": split, "n_questions": len(qs),
                      "config": {k: cfg[k] for k in ("embedding", "retrieval", "rerank", "confidence", "chunking")},
-                     "index": json.loads((resolve(cfg, "index_dir") / "meta.json").read_text())}
+                     "index": json.loads((resolve(cfg, "index_dir") / "meta.json").read_text(encoding="utf-8"))}
 
     # ---- 1. retrieval : ablation (in_scope, anglais) ----------------------------------------
     ins = [q for q in qs if q["category"] == "in_scope" and q["lang"] == "en"]
@@ -260,7 +260,7 @@ def evaluate(profile: str, overrides: dict | None = None, split: str = "test") -
         fails[p["failure"]] += 1
     m["failure_breakdown"] = dict(fails)
     metrics.update(m)
-    (out_dir / f"metrics_{split}.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
+    (out_dir / f"metrics_{split}.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
     _write_tables(metrics, out_dir, split)
     _write_figures(metrics, per_q, out_dir, split)
     print(json.dumps({k: metrics[k] for k in ("retrieval", "in_scope", "out_of_scope", "ambiguous", "human_request",
@@ -271,14 +271,14 @@ def evaluate(profile: str, overrides: dict | None = None, split: str = "test") -
 # ====================================================================================== tableaux & figures
 def _write_tables(m: dict, out_dir: Path, split: str) -> None:
     import csv
-    with open(out_dir / f"table_retrieval_{split}.csv", "w", newline="") as f:
+    with open(out_dir / f"table_retrieval_{split}.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         keys = ["hit@1", "hit@3", "hit@5", "mrr", "offtopic@3"]
         w.writerow(["variant"] + keys)
         for name, row in m["retrieval"].items():
             if not name.startswith("_"):
                 w.writerow([name] + [row[k] for k in keys])
-    with open(out_dir / f"table_pipeline_{split}.csv", "w", newline="") as f:
+    with open(out_dir / f"table_pipeline_{split}.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["groupe", "metrique", "valeur"])
         for g in ("in_scope", "out_of_scope", "ambiguous", "human_request", "safety", "in_scope_fr", "global"):

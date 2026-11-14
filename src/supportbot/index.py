@@ -47,17 +47,17 @@ class HybridIndex:
                 "n_docs": len({c.doc_id for c in self.chunks}), "chunking": cfg["chunking"],
                 "built_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
                 "corpus_sha256": hashlib.sha256("".join(c.text for c in self.chunks).encode()).hexdigest()}
-        (directory / "meta.json").write_text(json.dumps(meta, indent=2))
+        (directory / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
     @classmethod
     def load(cls, directory: Path, embedder: Embedder) -> "HybridIndex":
         if not (directory / "meta.json").exists():
             raise FileNotFoundError(f"Index introuvable dans {directory}. Lancez : python -m supportbot build")
-        meta = json.loads((directory / "meta.json").read_text())
+        meta = json.loads((directory / "meta.json").read_text(encoding="utf-8"))
         if meta["embedding_model"] != embedder.name:
             raise ValueError(f"Index construit avec {meta['embedding_model']} mais config = {embedder.name} : "
                              "reconstruisez l'index (python -m supportbot build).")
-        chunks = [Chunk(**json.loads(l)) for l in (directory / "chunks.jsonl").read_text().splitlines()]
+        chunks = [Chunk(**json.loads(l)) for l in (directory / "chunks.jsonl").read_text(encoding="utf-8").splitlines()]
         return cls(chunks, np.load(directory / "vectors.npy"), embedder)
 
     # ------------------------------------------------------------------ recherche

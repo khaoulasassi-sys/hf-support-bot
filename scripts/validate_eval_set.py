@@ -4,12 +4,12 @@
 import json, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-chunks = [json.loads(l) for l in (ROOT / "data/processed/chunks.jsonl").read_text().splitlines()]
+chunks = [json.loads(l) for l in (ROOT / "data/processed/chunks.jsonl").read_text(encoding="utf-8").splitlines()]
 by_doc = {}
 for c in chunks:
     by_doc.setdefault(c["doc_id"], []).append(c)
 bad = 0
-for l in (ROOT / "data/eval/questions.jsonl").read_text().splitlines():
+for l in (ROOT / "data/eval/questions.jsonl").read_text(encoding="utf-8").splitlines():
     q = json.loads(l)
     if q["category"] != "in_scope":
         continue

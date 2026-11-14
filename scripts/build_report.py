@@ -5,8 +5,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 profile = sys.argv[1] if len(sys.argv) > 1 else "offline"
 R = ROOT / "results" / profile
-m = json.loads((R / "metrics_test.json").read_text())
-cal = json.loads((R / "calibration.json").read_text())
+m = json.loads((R / "metrics_test.json").read_text(encoding="utf-8"))
+cal = json.loads((R / "calibration.json").read_text(encoding="utf-8"))
 pct = lambda x: f"{100 * x:.0f}\\,\\%"
 f2 = lambda x: f"{x:.2f}"
 
@@ -52,19 +52,19 @@ def clean(txt):  # retire emojis / caractères hors latin-1 ; échappe pour lstl
     return re.sub(r"[^\x00-\xff]", "", txt).replace("\u00a0", " ")
 conv = []
 cj = R / "conversations_extractive.json"
-for sc in json.loads(cj.read_text()):
+for sc in json.loads(cj.read_text(encoding="utf-8")):
     conv.append(f"\\paragraph{{{tex_escape(sc['scenario'])}}}")
     for t in sc["turns"]:
         bot = clean(t["bot"]); bot = bot.split("**Sources**")[0].strip()
         bot = bot[:650] + (" [...]" if len(bot) > 650 else "")
         conv.append("\\begin{lstlisting}\n" + clean(t["user"]) + "\n\\end{lstlisting}\n\\begin{lstlisting}[backgroundcolor=\\color{black!5}]\n" + bot.replace("**", "") +
                     f"\n\\end{{lstlisting}}\n\\noindent\\textit{{Décision : {tex_escape(t['decision'])}, confiance {100*t['confidence']:.0f}\\%" + (", escalade proposée" if t["escalation"] else "") + "}.\n")
-per = [json.loads(l) for l in (R / "per_question_test.jsonl").read_text().splitlines()]
+per = [json.loads(l) for l in (R / "per_question_test.jsonl").read_text(encoding="utf-8").splitlines()]
 fail_rows = [p for p in per if p["failure"] not in ("ok",)]
 for key, macro in (("REPO_URL", "repourl"), ("AUTHORS", "authors")):
     if os.environ.get(key):
-        (ROOT / "report" / f"{macro}.tex").write_text(os.environ[key])
-repo = (ROOT / "report" / "repourl.tex").read_text().strip()
+        (ROOT / "report" / f"{macro}.tex").write_text(os.environ[key], encoding="utf-8")
+repo = (ROOT / "report" / "repourl.tex").read_text(encoding="utf-8").strip()
 (ROOT / "report" / "results_tables.tex").write_text("\n".join([
     f"\\newcommand{{\\RepoURL}}{{{repo}}}",
     f"\\newcommand{{\\TabRetrieval}}{{{t1}}}", f"\\newcommand{{\\TabPipeline}}{{{t2}}}", f"\\newcommand{{\\TabLatency}}{{{t3}}}",
@@ -73,12 +73,12 @@ repo = (ROOT / "report" / "repourl.tex").read_text().strip()
     f"\\newcommand{{\\NChunks}}{{{m['index']['n_chunks']}}}", f"\\newcommand{{\\NDocs}}{{{m['index']['n_docs']}}}",
     f"\\newcommand{{\\CandRecall}}{{{pct(m['retrieval']['_candidate_recall@20'])}}}",
     f"\\newcommand{{\\ProfileName}}{{{profile}}}",
-    ]))
-(ROOT / "report" / "conversations.tex").write_text("\n".join(conv))
+    ]), encoding="utf-8")
+(ROOT / "report" / "conversations.tex").write_text("\n".join(conv), encoding="utf-8")
 env = dict(os.environ)
 for key, macro in (("REPO_URL", "repourl"), ("AUTHORS", "authors")):
     if os.environ.get(key):
-        (ROOT / "report" / f"{macro}.tex").write_text(os.environ[key])
+        (ROOT / "report" / f"{macro}.tex").write_text(os.environ[key], encoding="utf-8")
 for _ in range(2):
     r = subprocess.run(["pdflatex", "-interaction=nonstopmode", "main.tex"], cwd=ROOT / "report", capture_output=True)
 if not (ROOT / "report" / "main.pdf").exists():

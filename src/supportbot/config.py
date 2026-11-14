@@ -28,12 +28,12 @@ def load_config(profile: str = "hf", overrides: dict[str, Any] | None = None) ->
     path = Path(profile)
     if not path.suffix:
         path = ROOT / "configs" / f"{profile}.yaml"
-    cfg = yaml.safe_load(path.read_text())
+    cfg = yaml.safe_load(path.read_text(encoding="utf-8"))
     name = cfg.get("profile", path.stem)
     cfg["profile"] = name
     calib = ROOT / "results" / name / "calibration.json"
     if calib.exists():
-        cfg["confidence"].update(json.loads(calib.read_text())["confidence"])
+        cfg["confidence"].update(json.loads(calib.read_text(encoding="utf-8"))["confidence"])
     if overrides:
         _deep_update(cfg, copy.deepcopy(overrides))
     return cfg

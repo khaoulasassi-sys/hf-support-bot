@@ -72,7 +72,7 @@ def main() -> int:
             "sha256": hashlib.sha256(r.content).hexdigest(),
         })
         print(f"ok  {page} ({len(r.content)//1024} Ko)")
-    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
+    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\n{len(manifest['pages'])} pages téléchargées, {len(failed)} échecs")
     for p, s in failed:
         print("ECHEC", p, s)
