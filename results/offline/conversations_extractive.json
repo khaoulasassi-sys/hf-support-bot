@@ -4,9 +4,9 @@
     "turns": [
       {
         "user": "How do I load a model in 4-bit using bitsandbytes?",
-        "bot": "**Answer (extracted from the documentation)**\n\n- The example below loads an 8B model in 4 bits with bitsandbytes. [1]\n- You should use NF4 for training 4-bit base models. [3]\n- However, to remain consistent with the model weights, you should use the `bnb_4bit_compute_dtype` and `dtype` values. [3]\n\n**Code example** [1]\n```py\nimport torch\nfrom transformers import AutoModelForCausalLM, BitsAndBytesConfig\n\nquantization_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_compute_dtype=torch.bfloat16,\n)\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"meta-llama/Llama-3.1-8B-Instruct\",\n    quantization_config=quantization_config,\n    device_map=\"auto\",\n)\n```\n\n**Sources**\n[1] Overview > Quantize a model while loading — https://huggingface.co/docs/transformers/quantization/overview#quantize-a-model-while-loading\n[2] Bitsandbytes > Dequantizing bitsandbytes models — https://huggingface.co/docs/transformers/quantization/bitsandbytes#dequantizing-bitsandbytes-models\n[3] Bitsandbytes > QLoRA > Normal Float 4 (NF4) — https://huggingface.co/docs/transformers/quantization/bitsandbytes#normal-float-4-nf4\n[4] Apple Silicon > Quantize models — https://huggingface.co/docs/transformers/apple_silicon#quantize-models",
+        "bot": "**Answer (extracted from the documentation)**\n\n- The example below loads an 8B model in 4 bits with bitsandbytes. [1]\n- To fine-tune a model that doesn't fit in memory, load it in 4-bit with bitsandbytes and train LoRA adapters with PEFT. [2]\n- Make sure you have the latest bitsandbytes version so you can serialize 4-bit models and push them to the Hub with `PreTrainedModel.push_to_hub`. [3]\n\n**Code example** [1]\n```py\nimport torch\nfrom transformers import AutoModelForCausalLM, BitsAndBytesConfig\n\nquantization_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_compute_dtype=torch.bfloat16,\n)\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"meta-llama/Llama-3.1-8B-Instruct\",\n    quantization_config=quantization_config,\n    device_map=\"auto\",\n)\n```\n\n**Sources**\n[1] Overview > Quantize a model while loading — https://huggingface.co/docs/transformers/quantization/overview#quantize-a-model-while-loading\n[2] Apple Silicon > Quantize models — https://huggingface.co/docs/transformers/apple_silicon#quantize-models\n[3] Bitsandbytes > Quantization Examples — https://huggingface.co/docs/transformers/quantization/bitsandbytes#quantization-examples\n[4] Bitsandbytes > Dequantizing bitsandbytes models — https://huggingface.co/docs/transformers/quantization/bitsandbytes#dequantizing-bitsandbytes-models",
         "decision": "confident",
-        "confidence": 0.964,
+        "confidence": 0.883,
         "escalation": false,
         "retrieval_query": "How do I load a model in 4-bit using bitsandbytes?"
       }
@@ -17,30 +17,43 @@
     "turns": [
       {
         "user": "How do I enable gradient accumulation in the Trainer?",
-        "bot": "**Answer (extracted from the documentation)**\n\n- This normalizes by tokens rather than a fixed step count with `gradient_accumulation_steps`. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- If you subclass `Trainer` and override `Trainer.compute_loss`, set `loss_is_scaled_for_ga` to say how your loss is normalized: `False` for a per-batch mean, which `Trainer` then divides by `gradient_accumulation_steps`, or `True` if you already divided it by `num_items_in_batch`. [1]\n\n**Code example** [2]\n```py\nfrom transformers import TrainingArguments\n\nargs = TrainingArguments(\n    ...,\n    per_device_train_batch_size=8,\n    gradient_accumulation_steps=4,\n)\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[3] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps\n[4] Trainer features > Memory-efficient evals > eval_accumulation_steps — https://huggingface.co/docs/transformers/trainer_recipes#evalaccumulationsteps",
+        "bot": "**Answer (extracted from the documentation)**\n\n- This normalizes by tokens rather than a fixed step count with `gradient_accumulation_steps`. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- If you subclass `Trainer` and override `Trainer.compute_loss`, set `loss_is_scaled_for_ga` to say how your loss is normalized: `False` for a per-batch mean, which `Trainer` then divides by `gradient_accumulation_steps`, or `True` if you already divided it by `num_items_in_batch`. [1]\n\n**Code example** [2]\n```py\nfrom transformers import TrainingArguments\n\nargs = TrainingArguments(\n    ...,\n    per_device_train_batch_size=8,\n    gradient_accumulation_steps=4,\n)\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[3] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps\n[4] DeepSpeed ZeRO > ZeRO stages — https://huggingface.co/docs/transformers/deepspeed#zero-stages",
         "decision": "confident",
-        "confidence": 0.918,
+        "confidence": 0.679,
         "escalation": false,
         "retrieval_query": "How do I enable gradient accumulation in the Trainer?"
       },
       {
         "user": "and how does it affect the loss?",
-        "bot": "**Answer (extracted from the documentation)**\n\n- For a custom loss function, include `num_items_in_batch` so `Trainer` divides the loss by the number of prediction targets across all mini-batches. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- The loss shifts labels so the prediction at position `i` targets the token at position `i + 1`, which leaves position 0 of every sequence without a target. [1]\n\n**Code example** [1]\n```py\nimport torch.nn.functional as F\n\ndef compute_loss(outputs, labels, num_items_in_batch=None):\n    logits = outputs[\"logits\"]\n    loss = F.cross_entropy(logits, labels, reduction=\"sum\")\n    return loss / num_items_in_batch\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Trainer features > Custom loss function — https://huggingface.co/docs/transformers/trainer_recipes#custom-loss-function\n[3] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[4] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps",
-        "decision": "confident",
-        "confidence": 0.882,
-        "escalation": false,
+        "bot": "**Answer (extracted from the documentation)** — I am not certain these excerpts answer your question exactly.\n\n- For a custom loss function, include `num_items_in_batch` so `Trainer` divides the loss by the number of prediction targets across all mini-batches. [1]\n- Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]\n- The loss shifts labels so the prediction at position `i` targets the token at position `i + 1`, which leaves position 0 of every sequence without a target. [1]\n\n**Code example** [1]\n```py\nimport torch.nn.functional as F\n\ndef compute_loss(outputs, labels, num_items_in_batch=None):\n    logits = outputs[\"logits\"]\n    loss = F.cross_entropy(logits, labels, reduction=\"sum\")\n    return loss / num_items_in_batch\n```\n\n**Sources**\n[1] Gradient accumulation > Loss scaling — https://huggingface.co/docs/transformers/grad_accumulation#loss-scaling\n[2] Trainer features > Custom loss function — https://huggingface.co/docs/transformers/trainer_recipes#custom-loss-function\n[3] Gradient accumulation — https://huggingface.co/docs/transformers/grad_accumulation\n[4] Gradient accumulation > Next steps — https://huggingface.co/docs/transformers/grad_accumulation#next-steps\n\n⚠️ I'm only moderately confident (54%). Please check the sources, or ask for a human expert.",
+        "decision": "uncertain",
+        "confidence": 0.538,
+        "escalation": true,
         "retrieval_query": "How do I enable gradient accumulation in the Trainer? and how does it affect the loss?"
       }
     ]
   },
   {
-    "scenario": "Hors périmètre (refus)",
+    "scenario": "Hors périmètre (refus net)",
+    "turns": [
+      {
+        "user": "What is the tallest mountain in Africa?",
+        "bot": "I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.",
+        "decision": "no_answer",
+        "confidence": 0.052,
+        "escalation": true,
+        "retrieval_query": "What is the tallest mountain in Africa?"
+      }
+    ]
+  },
+  {
+    "scenario": "Hors périmètre proche du domaine (réponse avec réserve : cas limite)",
     "turns": [
       {
         "user": "How do I deploy my web app on AWS Lambda?",
-        "bot": "I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.",
-        "decision": "no_answer",
-        "confidence": 0.227,
+        "bot": "**Answer (extracted from the documentation)** — I am not certain these excerpts answer your question exactly.\n\n- Add launch to create a web server and start up the app. [1]\n- The web app runs on a local server by default. [1]\n- Deploy the model locally from the command line with llama-cli or start a web UI with llama-server. [3]\n\n**Code example** [2]\n```py\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.routing import Route\nfrom transformers import pipeline\nimport asyncio\n\nasync def homepage(request):\n    payload = await request.body()\n    string = payload.decode(\"utf-8\")\n    response_q = asyncio.Queue()\n    await request.app.model_queue.put((string, response_q))\n    output = await response_q.get()\n    return JSONResponse(output)\n\n```\n\n**Sources**\n[1] Machine learning apps — https://huggingface.co/docs/transformers/pipeline_gradio\n[2] Web server inference > Create a server — https://huggingface.co/docs/transformers/pipeline_webserver#create-a-server\n[3] llama.cpp — https://huggingface.co/docs/transformers/community_integrations/llama_cpp\n[4] Web server inference — https://huggingface.co/docs/transformers/pipeline_webserver\n\n⚠️ I'm only moderately confident (22%). Please check the sources, or ask for a human expert.",
+        "decision": "uncertain",
+        "confidence": 0.218,
         "escalation": true,
         "retrieval_query": "How do I deploy my web app on AWS Lambda?"
       }
@@ -53,7 +66,7 @@
         "user": "My model is slow.",
         "bot": "I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.",
         "decision": "no_answer",
-        "confidence": 0.135,
+        "confidence": 0.164,
         "escalation": true,
         "retrieval_query": "My model is slow."
       }

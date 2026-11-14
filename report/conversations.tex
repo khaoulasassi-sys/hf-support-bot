@@ -6,8 +6,8 @@ How do I load a model in 4-bit using bitsandbytes?
 Answer (extracted from the documentation)
 
 - The example below loads an 8B model in 4 bits with bitsandbytes. [1]
-- You should use NF4 for training 4-bit base models. [3]
-- However, to remain consistent with the model weights, you should use the `bnb_4bit_compute_dtype` and `dtype` values. [3]
+- To fine-tune a model that doesn't fit in memory, load it in 4-bit with bitsandbytes and train LoRA adapters with PEFT. [2]
+- Make sure you have the latest bitsandbytes version so you can serialize 4-bit models and push them to the Hub with `PreTrainedModel.push_to_hub`. [3]
 
 Code example [1]
 ```py
@@ -18,12 +18,9 @@ quantization_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_compute_dtype=torch.bfloat16,
 )
-model = AutoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-3.1-8B-Instruct",
-    quantization_config=quantization_config,
-   [...]
+model = AutoModelForCausalLM.from_pre [...]
 \end{lstlisting}
-\noindent\textit{Décision : confident, confiance 96\%}.
+\noindent\textit{Décision : confident, confiance 88\%}.
 
 \paragraph{Question de suivi (historique)}
 \begin{lstlisting}
@@ -45,13 +42,13 @@ args = TrainingArguments(
     per_device_train_batch_size=8,
   [...]
 \end{lstlisting}
-\noindent\textit{Décision : confident, confiance 92\%}.
+\noindent\textit{Décision : confident, confiance 68\%}.
 
 \begin{lstlisting}
 and how does it affect the loss?
 \end{lstlisting}
 \begin{lstlisting}[backgroundcolor=\color{black!5}]
-Answer (extracted from the documentation)
+Answer (extracted from the documentation)  I am not certain these excerpts answer your question exactly.
 
 - For a custom loss function, include `num_items_in_batch` so `Trainer` divides the loss by the number of prediction targets across all mini-batches. [1]
 - Otherwise, `Trainer` divides loss by `gradient_accumulation_steps`. [1]
@@ -62,20 +59,44 @@ Code example [1]
 import torch.nn.functional as F
 
 def compute_loss(outputs, labels, num_items_in_batch=None):
-    logits = outputs["logits"]
-    loss = F.cross_entropy(logits, labels, reduction="sum")
-  [...]
+    logits = outputs["logits" [...]
 \end{lstlisting}
-\noindent\textit{Décision : confident, confiance 88\%}.
+\noindent\textit{Décision : uncertain, confiance 54\%, escalade proposée}.
 
-\paragraph{Hors périmètre (refus)}
+\paragraph{Hors périmètre (refus net)}
 \begin{lstlisting}
-How do I deploy my web app on AWS Lambda?
+What is the tallest mountain in Africa?
 \end{lstlisting}
 \begin{lstlisting}[backgroundcolor=\color{black!5}]
 I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.
 \end{lstlisting}
-\noindent\textit{Décision : no\_answer, confiance 23\%, escalade proposée}.
+\noindent\textit{Décision : no\_answer, confiance 5\%, escalade proposée}.
+
+\paragraph{Hors périmètre proche du domaine (réponse avec réserve : cas limite)}
+\begin{lstlisting}
+How do I deploy my web app on AWS Lambda?
+\end{lstlisting}
+\begin{lstlisting}[backgroundcolor=\color{black!5}]
+Answer (extracted from the documentation)  I am not certain these excerpts answer your question exactly.
+
+- Add launch to create a web server and start up the app. [1]
+- The web app runs on a local server by default. [1]
+- Deploy the model locally from the command line with llama-cli or start a web UI with llama-server. [3]
+
+Code example [2]
+```py
+from starlette.applications import Starlette
+from starlette.responses import JSONResponse
+from starlette.routing import Route
+from transformers import pipeline
+import asyncio
+
+async def homepage(request):
+    payload = await request.body()
+    string = payload.decode("utf-8")
+    response_q  [...]
+\end{lstlisting}
+\noindent\textit{Décision : uncertain, confiance 22\%, escalade proposée}.
 
 \paragraph{Question vague (incertitude / escalade)}
 \begin{lstlisting}
@@ -84,7 +105,7 @@ My model is slow.
 \begin{lstlisting}[backgroundcolor=\color{black!5}]
 I couldn't find a reliable answer to this in the Hugging Face Transformers documentation, so I would rather not guess. I can pass your question to a human expert.
 \end{lstlisting}
-\noindent\textit{Décision : no\_answer, confiance 14\%, escalade proposée}.
+\noindent\textit{Décision : no\_answer, confiance 16\%, escalade proposée}.
 
 \paragraph{Demande d'un humain}
 \begin{lstlisting}

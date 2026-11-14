@@ -1,98 +1,96 @@
-{"id": "q001", "category": "in_scope", "question": "How do I install Transformers inside a virtual environment?", "gold_docs": ["installation"], "keywords": ["venv", "virtual environment"], "lang": "en", "split": "dev"}
-{"id": "q002", "category": "in_scope", "question": "Can I run Transformers without an internet connection?", "gold_docs": ["installation", "troubleshooting"], "keywords": ["HF_HUB_OFFLINE", "offline"], "lang": "en", "split": "test"}
-{"id": "q003", "category": "in_scope", "question": "Where are downloaded models cached and how can I change that folder?", "gold_docs": ["installation", "reference/environment_variables"], "keywords": ["HF_HOME", "cache"], "lang": "en", "split": "test"}
-{"id": "q004", "category": "in_scope", "question": "I want the latest unreleased features, how do I install from the main branch?", "gold_docs": ["installation"], "keywords": ["pip install git+", "source"], "lang": "en", "split": "dev"}
-{"id": "q005", "category": "in_scope", "question": "I keep getting CUDA out of memory errors when training, what can I try?", "gold_docs": ["troubleshooting"], "keywords": ["batch size", "gradient accumulation", "out of memory"], "lang": "en", "split": "test"}
-{"id": "q006", "category": "in_scope", "question": "My script is running on a machine behind a firewall and can't download the weights. What should I do?", "gold_docs": ["troubleshooting", "installation"], "keywords": ["firewall", "offline", "HF_HUB_OFFLINE"], "lang": "en", "split": "test"}
-{"id": "q007", "category": "in_scope", "question": "What does the 'CUDA error: device-side assert triggered' message mean and how do I debug it?", "gold_docs": ["troubleshooting"], "keywords": ["CUDA_LAUNCH_BLOCKING", "device-side assert"], "lang": "en", "split": "dev"}
-{"id": "q008", "category": "in_scope", "question": "The model output is wrong when my batch contains padded sequences", "gold_docs": ["troubleshooting"], "keywords": ["attention_mask", "attention mask"], "lang": "en", "split": "test"}
-{"id": "q009", "category": "in_scope", "question": "How do I run a text generation pipeline on my GPU?", "gold_docs": ["pipeline_tutorial"], "keywords": ["device=0", "device_map", "device"], "lang": "en", "split": "test"}
-{"id": "q010", "category": "in_scope", "question": "What is the best way to feed a very large dataset into a pipeline?", "gold_docs": ["pipeline_tutorial"], "keywords": ["KeyDataset", "generator", "large datasets"], "lang": "en", "split": "dev"}
-{"id": "q011", "category": "in_scope", "question": "How do I process several inputs at once with a pipeline?", "gold_docs": ["pipeline_tutorial"], "keywords": ["batch_size"], "lang": "en", "split": "test"}
-{"id": "q012", "category": "in_scope", "question": "My model is too big for one GPU, how can I load it across several devices?", "gold_docs": ["models", "nvidia_gpu"], "keywords": ["device_map", "Big Model Inference"], "lang": "en", "split": "test"}
-{"id": "q013", "category": "in_scope", "question": "How do I choose the precision a model is loaded in, so it isn't always float32?", "gold_docs": ["models"], "keywords": ["dtype", "torch_dtype"], "lang": "en", "split": "dev"}
-{"id": "q014", "category": "in_scope", "question": "How do I load a model in 4-bit using bitsandbytes?", "gold_docs": ["quantization/bitsandbytes", "quantization/overview"], "keywords": ["load_in_4bit", "BitsAndBytesConfig"], "lang": "en", "split": "test"}
-{"id": "q015", "category": "in_scope", "question": "What does the outlier threshold do in LLM.int8()?", "gold_docs": ["quantization/bitsandbytes"], "keywords": ["llm_int8_threshold", "outlier"], "lang": "en", "split": "test"}
-{"id": "q016", "category": "in_scope", "question": "Can I save a quantized model and upload it to the Hub?", "gold_docs": ["quantization/save", "quantization/overview"], "keywords": ["save_pretrained", "push_to_hub"], "lang": "en", "split": "dev"}
-{"id": "q017", "category": "in_scope", "question": "Which quantization method fits my hardware and memory budget?", "gold_docs": ["quantization/selecting", "quantization/overview"], "keywords": ["memory", "choose"], "lang": "en", "split": "test"}
-{"id": "q018", "category": "in_scope", "question": "How can I load a GGUF checkpoint in Transformers?", "gold_docs": ["quantization/gguf"], "keywords": ["gguf_file"], "lang": "en", "split": "test"}
-{"id": "q019", "category": "in_scope", "question": "How do I fine-tune with LoRA adapters through PEFT?", "gold_docs": ["peft"], "keywords": ["LoraConfig", "add_adapter", "adapter"], "lang": "en", "split": "dev"}
-{"id": "q020", "category": "in_scope", "question": "How can I trade compute for memory by recomputing activations during training?", "gold_docs": ["grad_checkpointing"], "keywords": ["gradient_checkpointing", "gradient checkpointing"], "lang": "en", "split": "test"}
-{"id": "q021", "category": "in_scope", "question": "How do I simulate a bigger batch size with gradient accumulation in the Trainer?", "gold_docs": ["grad_accumulation"], "keywords": ["gradient_accumulation_steps"], "lang": "en", "split": "test"}
-{"id": "q022", "category": "in_scope", "question": "How do I speed up training on Ampere GPUs with TF32?", "gold_docs": ["mixed_precision_training"], "keywords": ["tf32"], "lang": "en", "split": "dev"}
-{"id": "q023", "category": "in_scope", "question": "How do I stop training automatically when the evaluation metric stops improving?", "gold_docs": ["trainer_callbacks"], "keywords": ["EarlyStoppingCallback", "early_stopping"], "lang": "en", "split": "test"}
-{"id": "q024", "category": "in_scope", "question": "How do I write my own callback to run code at the end of each epoch?", "gold_docs": ["trainer_callbacks"], "keywords": ["TrainerCallback", "on_epoch_end"], "lang": "en", "split": "test"}
-{"id": "q025", "category": "in_scope", "question": "Can I replace the default loss of the Trainer with my own?", "gold_docs": ["trainer_recipes"], "keywords": ["compute_loss_func", "compute_loss"], "lang": "en", "split": "dev"}
-{"id": "q026", "category": "in_scope", "question": "Evaluation uses too much memory with a large vocabulary, how can I reduce it?", "gold_docs": ["trainer_recipes"], "keywords": ["eval_accumulation_steps", "preprocess_logits_for_metrics"], "lang": "en", "split": "test"}
-{"id": "q027", "category": "in_scope", "question": "How can I run an evaluation before training begins?", "gold_docs": ["trainer_recipes"], "keywords": ["eval_on_start"], "lang": "en", "split": "test"}
-{"id": "q028", "category": "in_scope", "question": "How do I reduce padding waste by batching similar-length samples together?", "gold_docs": ["trainer_recipes"], "keywords": ["group_by_length"], "lang": "en", "split": "dev"}
-{"id": "q029", "category": "in_scope", "question": "How do I search for the best hyperparameters with the Trainer?", "gold_docs": ["hpo_train"], "keywords": ["hyperparameter_search"], "lang": "en", "split": "test"}
-{"id": "q030", "category": "in_scope", "question": "How do I launch multi-GPU training with DistributedDataParallel?", "gold_docs": ["ddp", "perf_train_gpu_many"], "keywords": ["torchrun", "DistributedDataParallel"], "lang": "en", "split": "test"}
-{"id": "q031", "category": "in_scope", "question": "What sharding strategies does FSDP offer?", "gold_docs": ["fsdp"], "keywords": ["FULL_SHARD", "SHARD_GRAD_OP", "sharding"], "lang": "en", "split": "dev"}
-{"id": "q032", "category": "in_scope", "question": "How do I configure the ZeRO stages in DeepSpeed?", "gold_docs": ["deepspeed"], "keywords": ["zero_optimization", "stage"], "lang": "en", "split": "test"}
-{"id": "q033", "category": "in_scope", "question": "My training loss suddenly becomes NaN. How can I find where it happens?", "gold_docs": ["debugging"], "keywords": ["DebugUnderflowOverflow", "NaN", "inf"], "lang": "en", "split": "test"}
-{"id": "q034", "category": "in_scope", "question": "How can I display tokens one by one as the model generates them?", "gold_docs": ["generation_features"], "keywords": ["TextStreamer", "streamer"], "lang": "en", "split": "dev"}
-{"id": "q035", "category": "in_scope", "question": "What is the difference between greedy decoding, sampling and beam search?", "gold_docs": ["generation_strategies"], "keywords": ["num_beams", "do_sample"], "lang": "en", "split": "test"}
-{"id": "q036", "category": "in_scope", "question": "My generated text always stops after about 20 tokens", "gold_docs": ["llm_tutorial"], "keywords": ["max_new_tokens"], "lang": "en", "split": "test"}
-{"id": "q037", "category": "in_scope", "question": "Why are batched generations of poor quality, is it a padding problem?", "gold_docs": ["llm_tutorial"], "keywords": ["padding_side", "left"], "lang": "en", "split": "dev"}
-{"id": "q038", "category": "in_scope", "question": "How do I use a small draft model to make generation faster?", "gold_docs": ["assisted_decoding"], "keywords": ["assistant_model", "speculative"], "lang": "en", "split": "test"}
-{"id": "q039", "category": "in_scope", "question": "Can the key-value cache be quantized to save memory?", "gold_docs": ["kv_cache"], "keywords": ["QuantizedCache", "quantized"], "lang": "en", "split": "test"}
-{"id": "q040", "category": "in_scope", "question": "How do I move the KV cache to CPU memory during long generations?", "gold_docs": ["kv_cache"], "keywords": ["offload", "Offloaded"], "lang": "en", "split": "dev"}
-{"id": "q041", "category": "in_scope", "question": "How do I format a conversation for a chat model?", "gold_docs": ["chat_templating", "conversations"], "keywords": ["apply_chat_template"], "lang": "en", "split": "test"}
-{"id": "q042", "category": "in_scope", "question": "What is add_generation_prompt for in chat templates?", "gold_docs": ["chat_templating"], "keywords": ["add_generation_prompt"], "lang": "en", "split": "test"}
-{"id": "q043", "category": "in_scope", "question": "How do I let a model call external tools or functions?", "gold_docs": ["chat_extras"], "keywords": ["tools", "tool"], "lang": "en", "split": "dev"}
-{"id": "q044", "category": "in_scope", "question": "Can I expose a model through an OpenAI-compatible HTTP server?", "gold_docs": ["serve-cli/serving"], "keywords": ["transformers serve", "chat/completions"], "lang": "en", "split": "test"}
-{"id": "q045", "category": "in_scope", "question": "How do I pad and truncate a batch of texts with a tokenizer?", "gold_docs": ["fast_tokenizers"], "keywords": ["padding", "truncation"], "lang": "en", "split": "test"}
-{"id": "q046", "category": "in_scope", "question": "What is byte-pair encoding?", "gold_docs": ["tokenizer_summary"], "keywords": ["BPE", "byte-pair", "Byte-Pair"], "lang": "en", "split": "dev"}
-{"id": "q047", "category": "in_scope", "question": "What does the attention mask do?", "gold_docs": ["glossary"], "keywords": ["attention mask"], "lang": "en", "split": "test"}
-{"id": "q048", "category": "in_scope", "question": "How do I share my fine-tuned model on the Hugging Face Hub?", "gold_docs": ["model_sharing"], "keywords": ["push_to_hub"], "lang": "en", "split": "test"}
-{"id": "q049", "category": "in_scope", "question": "How can I export a model to ONNX?", "gold_docs": ["serialization"], "keywords": ["onnx", "optimum-cli"], "lang": "en", "split": "dev"}
-{"id": "q050", "category": "in_scope", "question": "How do I speed up inference using torch.compile?", "gold_docs": ["perf_torch_compile"], "keywords": ["torch.compile"], "lang": "en", "split": "test"}
-{"id": "q051", "category": "in_scope", "question": "How do I fine-tune a model for sentiment classification on IMDb?", "gold_docs": ["tasks/sequence_classification"], "keywords": ["IMDb", "imdb"], "lang": "en", "split": "test"}
-{"id": "q052", "category": "in_scope", "question": "How do I train a model for extractive question answering?", "gold_docs": ["tasks/question_answering"], "keywords": ["SQuAD", "squad"], "lang": "en", "split": "dev"}
-{"id": "q053", "category": "in_scope", "question": "Can I run models on a Mac GPU?", "gold_docs": ["apple_silicon"], "keywords": ["mps", "MPS"], "lang": "en", "split": "test"}
-{"id": "q054", "category": "in_scope", "question": "How do I handle dynamic padding of batches during training?", "gold_docs": ["data_collators"], "keywords": ["DataCollatorWithPadding"], "lang": "en", "split": "test"}
-{"id": "q055", "category": "in_scope", "question": "How do I set up speech recognition fine-tuning?", "gold_docs": ["tasks/asr"], "keywords": ["MInDS", "CTC", "Wav2Vec2"], "lang": "en", "split": "dev"}
-{"id": "q056", "category": "in_scope", "question": "How do I choose a different optimizer or learning rate scheduler for the Trainer?", "gold_docs": ["optimizers"], "keywords": ["optim", "lr_scheduler_type", "scheduler"], "lang": "en", "split": "test"}
-{"id": "q057", "category": "in_scope", "question": "Which environment variable controls how verbose the logging is?", "gold_docs": ["reference/environment_variables"], "keywords": ["TRANSFORMERS_VERBOSITY"], "lang": "en", "split": "test"}
-{"id": "q058", "category": "in_scope", "question": "How can Flash Attention reduce memory use for long inputs?", "gold_docs": ["llm_tutorial_optimization", "nvidia_gpu"], "keywords": ["flash", "Flash"], "lang": "en", "split": "dev"}
-{"id": "q059", "category": "in_scope", "question": "Comment installer Transformers dans un environnement virtuel ?", "gold_docs": ["installation"], "keywords": ["venv", "virtual environment"], "lang": "fr", "split": "dev"}
-{"id": "q060", "category": "in_scope", "question": "Comment charger un modèle en 4 bits avec bitsandbytes ?", "gold_docs": ["quantization/bitsandbytes", "quantization/overview"], "keywords": ["load_in_4bit", "BitsAndBytesConfig"], "lang": "fr", "split": "test"}
-{"id": "q061", "category": "in_scope", "question": "Comment activer l'accumulation de gradient dans le Trainer ?", "gold_docs": ["grad_accumulation"], "keywords": ["gradient_accumulation_steps"], "lang": "fr", "split": "test"}
-{"id": "q062", "category": "in_scope", "question": "Mon entraînement plante avec une erreur CUDA out of memory, que faire ?", "gold_docs": ["troubleshooting"], "keywords": ["batch size", "gradient accumulation", "out of memory"], "lang": "fr", "split": "dev"}
-{"id": "q063", "category": "in_scope", "question": "Comment appliquer un chat template à une conversation ?", "gold_docs": ["chat_templating", "conversations"], "keywords": ["apply_chat_template"], "lang": "fr", "split": "test"}
-{"id": "q064", "category": "in_scope", "question": "Comment publier mon modèle sur le Hub Hugging Face ?", "gold_docs": ["model_sharing"], "keywords": ["push_to_hub"], "lang": "fr", "split": "test"}
-{"id": "q065", "category": "out_of_scope", "question": "How do I bake a chocolate cake?", "lang": "en", "split": "dev"}
-{"id": "q066", "category": "out_of_scope", "question": "What will the weather be like in Tunis tomorrow?", "lang": "en", "split": "test"}
-{"id": "q067", "category": "out_of_scope", "question": "Who won the 2022 football World Cup?", "lang": "en", "split": "test"}
-{"id": "q068", "category": "out_of_scope", "question": "How do I reset my Netflix password?", "lang": "en", "split": "dev"}
-{"id": "q069", "category": "out_of_scope", "question": "Can you recommend a good restaurant in Paris?", "lang": "en", "split": "test"}
-{"id": "q070", "category": "out_of_scope", "question": "Write me a poem about the sea.", "lang": "en", "split": "test"}
-{"id": "q071", "category": "out_of_scope", "question": "How do I configure an nginx reverse proxy with SSL certificates?", "lang": "en", "split": "dev"}
-{"id": "q072", "category": "out_of_scope", "question": "How do I deploy a TensorFlow Serving model on Kubernetes?", "lang": "en", "split": "test"}
-{"id": "q073", "category": "out_of_scope", "question": "How do I build an agent with LangChain and Pinecone?", "lang": "en", "split": "test"}
-{"id": "q074", "category": "out_of_scope", "question": "How much does a Hugging Face Pro subscription cost?", "lang": "en", "split": "dev"}
-{"id": "q075", "category": "out_of_scope", "question": "How do I fine-tune a model with LLaMA-Factory?", "lang": "en", "split": "test"}
-{"id": "q076", "category": "out_of_scope", "question": "How do I install PyTorch Lightning and use its LightningModule?", "lang": "en", "split": "test"}
-{"id": "q077", "category": "out_of_scope", "question": "How do I generate images with the OpenAI API?", "lang": "en", "split": "dev"}
-{"id": "q078", "category": "out_of_scope", "question": "What is the capital of Australia?", "lang": "en", "split": "test"}
-{"id": "q079", "category": "out_of_scope", "question": "How do I deploy my web app on AWS Lambda?", "lang": "en", "split": "test"}
-{"id": "q080", "category": "out_of_scope", "question": "Can I get a refund for my Inference Endpoints invoice?", "lang": "en", "split": "dev"}
-{"id": "q081", "category": "out_of_scope", "question": "How do I write a pivot table formula in Excel?", "lang": "en", "split": "test"}
-{"id": "q082", "category": "ambiguous", "question": "It doesn't work, please help.", "lang": "en", "split": "dev"}
-{"id": "q083", "category": "ambiguous", "question": "My model is slow.", "lang": "en", "split": "test"}
-{"id": "q084", "category": "ambiguous", "question": "Error: something went wrong when I ran the script.", "lang": "en", "split": "test"}
-{"id": "q085", "category": "ambiguous", "question": "How can I make it better?", "lang": "en", "split": "dev"}
-{"id": "q086", "category": "ambiguous", "question": "Which model is the best?", "lang": "en", "split": "test"}
-{"id": "q087", "category": "ambiguous", "question": "What is the best learning rate?", "lang": "en", "split": "test"}
-{"id": "q088", "category": "ambiguous", "question": "Why does my accuracy not improve?", "lang": "en", "split": "dev"}
-{"id": "q089", "category": "ambiguous", "question": "I need to fine-tune, quantize, serve and monitor a 70B model across three clouds on a $100 budget, with GDPR compliance. What exactly should I do? Which GPUs? Which vendor? How long will it take? Who will maintain it?", "lang": "en", "split": "test"}
-{"id": "q090", "category": "ambiguous", "question": "Traceback (most recent call last):\n  File \"train.py\", line 52, in <module>\n    trainer.train()\n  File \"/usr/lib/python3/site-packages/torch/nn/modules/module.py\", line 1501, in _call_impl\n    return forward_call(*args, **kwargs)\nRuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!\nWhy is this happening, how do I fix it, and is my dataloader also wrong?", "lang": "en", "split": "test"}
-{"id": "q091", "category": "ambiguous", "question": "Can you review my 300-line training script and tell me everything wrong with it?", "lang": "en", "split": "dev"}
-{"id": "q092", "category": "ambiguous", "question": "My company needs a contractual SLA for this library. Who should we contact?", "lang": "en", "split": "test"}
-{"id": "q093", "category": "ambiguous", "question": "I think there's a bug: the evaluation loss differs between two identical runs on two machines. Can you confirm it's a bug in the Trainer? What is the root cause? Should I open an issue? Is it the dataloader?", "lang": "en", "split": "test"}
-{"id": "q094", "category": "ambiguous", "question": "Is PyTorch or JAX better for my project?", "lang": "en", "split": "dev"}
-{"id": "q095", "category": "ambiguous", "question": "Can you teach me everything about transformers?", "lang": "en", "split": "test"}
-{"id": "q096", "category": "human", "question": "Can I speak to a human please?", "lang": "en", "split": "dev"}
-{"id": "q097", "category": "human", "question": "I'd like to talk to a real person about my problem.", "lang": "en", "split": "test"}
-{"id": "q098", "category": "human", "question": "Je voudrais parler à un conseiller humain.", "lang": "fr", "split": "dev"}
+{"id": "q001", "category": "in_scope", "question": "I'm on a MacBook with an M2 chip and an operator isn't implemented for the Metal backend. Is there an environment variable to avoid the crash?", "gold_docs": ["apple_silicon"], "keywords": ["PYTORCH_ENABLE_MPS_FALLBACK"], "lang": "en", "split": "dev"}
+{"id": "q002", "category": "in_scope", "question": "How can I limit how many CPU threads PyTorch uses when I run inference?", "gold_docs": ["cpu"], "keywords": ["OMP_NUM_THREADS"], "lang": "en", "split": "test"}
+{"id": "q003", "category": "in_scope", "question": "What is the difference between WordPiece and Unigram tokenization?", "gold_docs": ["tokenizer_summary"], "keywords": ["WordPiece", "Unigram"], "lang": "en", "split": "test"}
+{"id": "q004", "category": "in_scope", "question": "Which subword algorithm does SentencePiece rely on?", "gold_docs": ["tokenizer_summary", "fast_tokenizers"], "keywords": ["SentencePiece"], "lang": "en", "split": "dev"}
+{"id": "q005", "category": "in_scope", "question": "Why do ALiBi and rotary position embeddings matter for long prompts?", "gold_docs": ["llm_tutorial_optimization"], "keywords": ["ALiBi", "rotary"], "lang": "en", "split": "test"}
+{"id": "q006", "category": "in_scope", "question": "Is there an optimizer that saves memory by projecting gradients into a low-rank space?", "gold_docs": ["optimizers"], "keywords": ["GaLore"], "lang": "en", "split": "test"}
+{"id": "q007", "category": "in_scope", "question": "Can I train without having to tune a learning rate schedule?", "gold_docs": ["optimizers"], "keywords": ["schedule_free", "schedule-free"], "lang": "en", "split": "dev"}
+{"id": "q008", "category": "in_scope", "question": "What is LOMO and why would I use it for a big model?", "gold_docs": ["optimizers"], "keywords": ["LOMO"], "lang": "en", "split": "test"}
+{"id": "q009", "category": "in_scope", "question": "Can the Trainer run its hyperparameter search with Optuna?", "gold_docs": ["hpo_train"], "keywords": ["Optuna", "optuna"], "lang": "en", "split": "test"}
+{"id": "q010", "category": "in_scope", "question": "How do I attach a trained LoRA adapter to a base model I already loaded?", "gold_docs": ["peft"], "keywords": ["load_adapter"], "lang": "en", "split": "dev"}
+{"id": "q011", "category": "in_scope", "question": "What do the r and lora_alpha settings control in a LoRA configuration?", "gold_docs": ["peft"], "keywords": ["lora_alpha"], "lang": "en", "split": "test"}
+{"id": "q012", "category": "in_scope", "question": "My training crashed after 6 hours. How do I pick it up again from the last saved checkpoint?", "gold_docs": ["trainer_recipes"], "keywords": ["resume_from_checkpoint"], "lang": "en", "split": "test"}
+{"id": "q013", "category": "in_scope", "question": "Checkpoints are filling my disk, how can I keep only the most recent ones?", "gold_docs": ["trainer_recipes"], "keywords": ["save_total_limit"], "lang": "en", "split": "dev"}
+{"id": "q014", "category": "in_scope", "question": "Is there a trick that adds noise to embeddings during instruction fine-tuning?", "gold_docs": ["trainer_recipes"], "keywords": ["NEFTune", "neftune"], "lang": "en", "split": "test"}
+{"id": "q015", "category": "in_scope", "question": "My GPU waits for data between steps, how do I load batches with several workers?", "gold_docs": ["trainer_recipes"], "keywords": ["dataloader_num_workers"], "lang": "en", "split": "test"}
+{"id": "q016", "category": "in_scope", "question": "Which attention implementation relies on PyTorch's scaled dot product attention?", "gold_docs": ["nvidia_gpu", "apple_silicon", "amd_gpu"], "keywords": ["SDPA", "sdpa"], "lang": "en", "split": "dev"}
+{"id": "q017", "category": "in_scope", "question": "How can I keep memory constant for very long generations using a sliding window?", "gold_docs": ["kv_cache"], "keywords": ["sliding window", "Sliding"], "lang": "en", "split": "test"}
+{"id": "q018", "category": "in_scope", "question": "When is a static cache worth using?", "gold_docs": ["kv_cache"], "keywords": ["StaticCache", "static cache"], "lang": "en", "split": "test"}
+{"id": "q019", "category": "in_scope", "question": "How can I make generation stop with a custom rule instead of only the end-of-sequence token?", "gold_docs": ["llm_tutorial"], "keywords": ["StoppingCriteria"], "lang": "en", "split": "dev"}
+{"id": "q020", "category": "in_scope", "question": "How do I get several different completions for the same prompt?", "gold_docs": ["pipeline_tutorial", "kv_cache"], "keywords": ["num_return_sequences"], "lang": "en", "split": "test"}
+{"id": "q021", "category": "in_scope", "question": "How can I get timestamps along with the transcription in a speech recognition pipeline?", "gold_docs": ["pipeline_tutorial"], "keywords": ["return_timestamps"], "lang": "en", "split": "test"}
+{"id": "q022", "category": "in_scope", "question": "How do I put a pipeline behind a small web server?", "gold_docs": ["pipeline_webserver"], "keywords": ["uvicorn", "Starlette", "starlette"], "lang": "en", "split": "dev"}
+{"id": "q023", "category": "in_scope", "question": "How can I quickly build a demo interface for a pipeline?", "gold_docs": ["pipeline_gradio"], "keywords": ["gradio", "Gradio"], "lang": "en", "split": "test"}
+{"id": "q024", "category": "in_scope", "question": "What sampling rate must my audio have before fine-tuning a speech model?", "gold_docs": ["tasks/asr"], "keywords": ["sampling_rate"], "lang": "en", "split": "test"}
+{"id": "q025", "category": "in_scope", "question": "In question answering, how do I map the predicted span back to the original text?", "gold_docs": ["tasks/question_answering"], "keywords": ["offset_mapping"], "lang": "en", "split": "dev"}
+{"id": "q026", "category": "in_scope", "question": "What does double quantization change when loading a model in 4-bit?", "gold_docs": ["quantization/bitsandbytes"], "keywords": ["bnb_4bit_use_double_quant"], "lang": "en", "split": "test"}
+{"id": "q027", "category": "in_scope", "question": "Which 4-bit data type is recommended for QLoRA?", "gold_docs": ["quantization/bitsandbytes"], "keywords": ["nf4", "NF4"], "lang": "en", "split": "test"}
+{"id": "q028", "category": "in_scope", "question": "Can I offload some modules of an 8-bit model to the CPU?", "gold_docs": ["quantization/bitsandbytes"], "keywords": ["llm_int8_enable_fp32_cpu_offload"], "lang": "en", "split": "dev"}
+{"id": "q029", "category": "in_scope", "question": "What does the group size mean for AWQ quantization?", "gold_docs": ["quantization/awq"], "keywords": ["group_size"], "lang": "en", "split": "test"}
+{"id": "q030", "category": "in_scope", "question": "Are there faster kernels for GPTQ models?", "gold_docs": ["quantization/gptq", "quantization/selecting"], "keywords": ["Marlin"], "lang": "en", "split": "test"}
+{"id": "q031", "category": "in_scope", "question": "What does a name like Q4_K_M mean for a GGUF file?", "gold_docs": ["quantization/gguf", "quantization/overview"], "keywords": ["Q4_K_M"], "lang": "en", "split": "dev"}
+{"id": "q032", "category": "in_scope", "question": "How do I run Hub models with llama.cpp?", "gold_docs": ["community_integrations/llama_cpp"], "keywords": ["llama.cpp"], "lang": "en", "split": "test"}
+{"id": "q033", "category": "in_scope", "question": "How is symmetric quantization different from asymmetric?", "gold_docs": ["quantization/concept_guide"], "keywords": ["symmetric"], "lang": "en", "split": "test"}
+{"id": "q034", "category": "in_scope", "question": "Can I use my AMD graphics card with the library?", "gold_docs": ["amd_gpu"], "keywords": ["ROCm"], "lang": "en", "split": "dev"}
+{"id": "q035", "category": "in_scope", "question": "How can I restrict which GPUs my script can see?", "gold_docs": ["troubleshooting", "nvidia_gpu", "debugging"], "keywords": ["CUDA_VISIBLE_DEVICES"], "lang": "en", "split": "test"}
+{"id": "q036", "category": "in_scope", "question": "My multi-GPU job hangs, how do I investigate communication problems?", "gold_docs": ["debugging"], "keywords": ["NCCL"], "lang": "en", "split": "test"}
+{"id": "q037", "category": "in_scope", "question": "How can I move optimizer states to the CPU with DeepSpeed?", "gold_docs": ["deepspeed"], "keywords": ["offload_optimizer"], "lang": "en", "split": "dev"}
+{"id": "q038", "category": "in_scope", "question": "Should I choose fp16 or bf16 for mixed precision?", "gold_docs": ["mixed_precision_training"], "keywords": ["bf16"], "lang": "en", "split": "test"}
+{"id": "q039", "category": "in_scope", "question": "How do I train a masked language model?", "gold_docs": ["tasks/language_modeling", "training"], "keywords": ["DataCollatorForLanguageModeling"], "lang": "en", "split": "test"}
+{"id": "q040", "category": "in_scope", "question": "How can I send my training metrics to Weights & Biases?", "gold_docs": ["hpo_train", "trainer_recipes"], "keywords": ["wandb"], "lang": "en", "split": "dev"}
+{"id": "q041", "category": "in_scope", "question": "What do I need to do in the terminal before pushing a model to the Hub?", "gold_docs": ["model_sharing", "custom_models", "quantization/save"], "keywords": ["hf auth login", "login"], "lang": "en", "split": "test"}
+{"id": "q042", "category": "in_scope", "question": "In which file format are weights saved by default?", "gold_docs": ["models"], "keywords": ["safetensors"], "lang": "en", "split": "test"}
+{"id": "q043", "category": "in_scope", "question": "How can I load a model that ships its own code on the Hub?", "gold_docs": ["custom_models", "models", "generation_strategies"], "keywords": ["trust_remote_code"], "lang": "en", "split": "dev"}
+{"id": "q044", "category": "in_scope", "question": "Can I export a model to run on a phone with ExecuTorch?", "gold_docs": ["serialization"], "keywords": ["ExecuTorch"], "lang": "en", "split": "test"}
+{"id": "q045", "category": "in_scope", "question": "How do I make the assistant continue a message it already started?", "gold_docs": ["chat_templating"], "keywords": ["continue_final_message"], "lang": "en", "split": "test"}
+{"id": "q046", "category": "in_scope", "question": "How does a model return a structured tool call?", "gold_docs": ["chat_extras"], "keywords": ["tool_call"], "lang": "en", "split": "dev"}
+{"id": "q047", "category": "in_scope", "question": "Can I pass documents to a chat model so it answers from them?", "gold_docs": ["chat_extras"], "keywords": ["documents", "document"], "lang": "en", "split": "test"}
+{"id": "q048", "category": "in_scope", "question": "Which generation setting discourages the model from repeating itself?", "gold_docs": ["llm_tutorial"], "keywords": ["repetition_penalty"], "lang": "en", "split": "test"}
+{"id": "q049", "category": "in_scope", "question": "Which parameter controls how random the sampling is?", "gold_docs": ["chat_extras", "serve-cli/serving", "assisted_decoding", "generation_strategies"], "keywords": ["temperature"], "lang": "en", "split": "dev"}
+{"id": "q050", "category": "in_scope", "question": "What is prompt lookup decoding?", "gold_docs": ["assisted_decoding"], "keywords": ["prompt lookup", "Prompt lookup"], "lang": "en", "split": "test"}
+{"id": "q051", "category": "in_scope", "question": "How do I tokenize a prompt without adding special tokens?", "gold_docs": ["chat_templating", "assisted_decoding"], "keywords": ["add_special_tokens"], "lang": "en", "split": "test"}
+{"id": "q052", "category": "in_scope", "question": "My decoder-only model has no pad token and batching fails, what should I do?", "gold_docs": ["llm_tutorial", "llm_tutorial_optimization"], "keywords": ["pad_token"], "lang": "en", "split": "dev"}
+{"id": "q053", "category": "in_scope", "question": "What is the masked language modeling objective?", "gold_docs": ["glossary"], "keywords": ["masked language", "MLM", "mlm"], "lang": "en", "split": "test"}
+{"id": "q054", "category": "in_scope", "question": "What does an image processor do?", "gold_docs": ["tasks/image_classification", "glossary"], "keywords": ["image processor"], "lang": "en", "split": "test"}
+{"id": "q055", "category": "in_scope", "question": "How do I start FSDP training with accelerate launch?", "gold_docs": ["fsdp", "accelerate"], "keywords": ["accelerate launch"], "lang": "en", "split": "dev"}
+{"id": "q056", "category": "in_scope", "question": "Can I speed up CPU training with bf16 mixed precision?", "gold_docs": ["cpu"], "keywords": ["bf16"], "lang": "en", "split": "test"}
+{"id": "q057", "category": "in_scope", "question": "Comment limiter le nombre de threads CPU utilisés par PyTorch ?", "gold_docs": ["cpu"], "keywords": ["OMP_NUM_THREADS"], "lang": "fr", "split": "dev"}
+{"id": "q058", "category": "in_scope", "question": "Quelle est la différence entre WordPiece et Unigram ?", "gold_docs": ["tokenizer_summary"], "keywords": ["WordPiece", "Unigram"], "lang": "fr", "split": "test"}
+{"id": "q059", "category": "in_scope", "question": "Comment reprendre un entraînement après un plantage ?", "gold_docs": ["trainer_recipes"], "keywords": ["resume_from_checkpoint"], "lang": "fr", "split": "test"}
+{"id": "q060", "category": "in_scope", "question": "Comment ne garder que les derniers checkpoints sur le disque ?", "gold_docs": ["trainer_recipes"], "keywords": ["save_total_limit"], "lang": "fr", "split": "dev"}
+{"id": "q061", "category": "in_scope", "question": "Comment charger un adaptateur LoRA sur un modèle de base ?", "gold_docs": ["peft"], "keywords": ["load_adapter"], "lang": "fr", "split": "test"}
+{"id": "q062", "category": "in_scope", "question": "Quelle variable d'environnement permet de choisir les GPU visibles ?", "gold_docs": ["troubleshooting", "nvidia_gpu", "debugging"], "keywords": ["CUDA_VISIBLE_DEVICES"], "lang": "fr", "split": "test"}
+{"id": "q063", "category": "out_of_scope", "question": "How do I make a sourdough starter?", "lang": "en", "split": "dev"}
+{"id": "q064", "category": "out_of_scope", "question": "What is the exchange rate between the Tunisian dinar and the euro today?", "lang": "en", "split": "test"}
+{"id": "q065", "category": "out_of_scope", "question": "Explain how castling works in chess.", "lang": "en", "split": "test"}
+{"id": "q066", "category": "out_of_scope", "question": "How do I fix a flat bicycle tire?", "lang": "en", "split": "dev"}
+{"id": "q067", "category": "out_of_scope", "question": "How do I set up a PostgreSQL read replica?", "lang": "en", "split": "test"}
+{"id": "q068", "category": "out_of_scope", "question": "How do I train a YOLOv8 detector on my own images with Ultralytics?", "lang": "en", "split": "test"}
+{"id": "q069", "category": "out_of_scope", "question": "How do I write a Dockerfile for a Flask application?", "lang": "en", "split": "dev"}
+{"id": "q070", "category": "out_of_scope", "question": "How do I use the OpenAI fine-tuning API on my dataset?", "lang": "en", "split": "test"}
+{"id": "q071", "category": "out_of_scope", "question": "How do I tune a model with scikit-learn's GridSearchCV?", "lang": "en", "split": "test"}
+{"id": "q072", "category": "out_of_scope", "question": "What are the opening hours of the Hugging Face office in Paris?", "lang": "en", "split": "dev"}
+{"id": "q073", "category": "out_of_scope", "question": "Can you translate this paragraph into Arabic for me?", "lang": "en", "split": "test"}
+{"id": "q074", "category": "out_of_scope", "question": "How do I write a React component with hooks?", "lang": "en", "split": "test"}
+{"id": "q075", "category": "out_of_scope", "question": "Which Stable Diffusion sampler is best for portraits?", "lang": "en", "split": "dev"}
+{"id": "q076", "category": "out_of_scope", "question": "How do I cancel my Hugging Face Enterprise contract?", "lang": "en", "split": "test"}
+{"id": "q077", "category": "out_of_scope", "question": "How do I connect to a MySQL database from Java?", "lang": "en", "split": "test"}
+{"id": "q078", "category": "out_of_scope", "question": "What is the tallest mountain in Africa?", "lang": "en", "split": "dev"}
+{"id": "q079", "category": "out_of_scope", "question": "How can I make my Excel macros run faster?", "lang": "en", "split": "test"}
+{"id": "q080", "category": "ambiguous", "question": "Nothing happens when I press run.", "lang": "en", "split": "dev"}
+{"id": "q081", "category": "ambiguous", "question": "The results look weird.", "lang": "en", "split": "test"}
+{"id": "q082", "category": "ambiguous", "question": "How do I fix the bug?", "lang": "en", "split": "test"}
+{"id": "q083", "category": "ambiguous", "question": "Which GPU should I buy?", "lang": "en", "split": "dev"}
+{"id": "q084", "category": "ambiguous", "question": "Is my dataset good enough?", "lang": "en", "split": "test"}
+{"id": "q085", "category": "ambiguous", "question": "What is the best batch size for me?", "lang": "en", "split": "test"}
+{"id": "q086", "category": "ambiguous", "question": "Why is it so much slower than yesterday?", "lang": "en", "split": "dev"}
+{"id": "q087", "category": "ambiguous", "question": "My boss wants a full production pipeline: fine-tune, quantize, deploy on-premise and in the cloud, add monitoring, guarantee 99.9% uptime and pass a security audit. Give me the complete plan with timelines and costs. Which vendor? Which team size? What about backups?", "lang": "en", "split": "test"}
+{"id": "q088", "category": "ambiguous", "question": "Traceback (most recent call last):\n  File \"run.py\", line 88, in <module>\n    batch = collate(samples)\n  File \"collate.py\", line 14, in collate\n    return torch.tensor(rows)\nValueError: expected sequence of length 128 at dim 1 (got 97)\nWhy does this happen, how do I fix it, and is my tokenizer config also wrong?", "lang": "en", "split": "test"}
+{"id": "q089", "category": "ambiguous", "question": "Please debug my notebook (about 400 cells) and tell me why the loss is so high.", "lang": "en", "split": "dev"}
+{"id": "q090", "category": "ambiguous", "question": "We need a legal confirmation that fine-tuned models can be used commercially. Who can sign off on this?", "lang": "en", "split": "test"}
+{"id": "q091", "category": "ambiguous", "question": "Training on two clusters gives different perplexities. Maybe the distributed sampler is buggy? Can you confirm, find the root cause and tell me if I should file an issue? Or is it my seed?", "lang": "en", "split": "test"}
+{"id": "q092", "category": "ambiguous", "question": "Should I learn Transformers or classical machine learning first?", "lang": "en", "split": "dev"}
+{"id": "q093", "category": "ambiguous", "question": "Tell me everything about artificial intelligence.", "lang": "en", "split": "test"}
+{"id": "q094", "category": "human", "question": "I would like to speak with a support agent.", "lang": "en", "split": "dev"}
+{"id": "q095", "category": "human", "question": "Please connect me to a human expert.", "lang": "en", "split": "test"}
+{"id": "q096", "category": "human", "question": "J'aimerais être mis en relation avec un conseiller humain.", "lang": "fr", "split": "dev"}

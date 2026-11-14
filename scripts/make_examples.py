@@ -11,7 +11,8 @@ bot = SupportBot.from_config(profile, {"llm": {"backend": llm}})
 SCENARIOS = {
  "Question simple (réponse confiante)": ["How do I load a model in 4-bit using bitsandbytes?"],
  "Question de suivi (historique)": ["How do I enable gradient accumulation in the Trainer?", "and how does it affect the loss?"],
- "Hors périmètre (refus)": ["How do I deploy my web app on AWS Lambda?"],
+ "Hors périmètre (refus net)": ["What is the tallest mountain in Africa?"],
+ "Hors périmètre proche du domaine (réponse avec réserve : cas limite)": ["How do I deploy my web app on AWS Lambda?"],
  "Question vague (incertitude / escalade)": ["My model is slow."],
  "Demande d'un humain": ["Can I speak to a human please?"],
 }

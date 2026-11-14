@@ -37,9 +37,9 @@ Dans l'interface, choisissez « openai » dans la barre latérale. Si le LLM tom
 
 ## Structure
 `src/supportbot/` (ingest, chunking, embeddings, index, reranker, confidence, llm, pipeline, evaluation, logstats) ·
-`app/streamlit_app.py` · `configs/{hf,offline}.yaml` · `data/raw` (corpus + manifest) · `data/eval/questions.jsonl` (98 questions étiquetées) ·
+`app/streamlit_app.py` · `configs/{hf,offline}.yaml` · `data/raw` (corpus + manifest) · `data/eval/questions.jsonl` (96 questions étiquetées) ·
 `results/` · `tests/` · `report/`.
 
 ## Évaluation
-98 questions (64 couvertes, 17 hors périmètre, 14 ambiguës, 3 demandes d'humain) ; 1/3 en **dev** (entraînement du re-ranker + calibration
+96 questions (62 couvertes, 17 hors périmètre, 14 ambiguës, 3 demandes d'humain) ; 1/3 en **dev** (entraînement du re-ranker + calibration
 des seuils, validation croisée), 2/3 en **test** (jamais utilisé pour régler). Étiquettes vérifiées contre le corpus (`make validate`).

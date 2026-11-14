@@ -27,6 +27,7 @@ from .types import Candidate, Chunk
 
 QUESTIONS = ROOT / "data" / "eval" / "questions.jsonl"
 TARGET_PRECISION = 0.90          # précision visée pour les réponses « confiantes »
+MAX_RISKY_CONFIDENT = 0.15       # part maximale de questions hors périmètre / ambiguës jugées « confiantes »
 MAX_WRONGFUL_ABSTENTION = 0.15   # part maximale de questions couvertes refusées à tort
 
 
@@ -95,21 +96,28 @@ def calibrate(profile: str, overrides: dict | None = None) -> dict:
 
     confs = np.array([c for c, _, _ in items])
     oks = np.array([o for _, o, _ in items])
-    # tau_high : plus petit seuil dont les réponses « confiantes » atteignent la précision visée
+    # tau_high : plus petit seuil qui (1) donne la précision visée aux réponses « confiantes » ET
+    # (2) laisse « confiantes » au plus MAX_RISKY_CONFIDENT des questions hors périmètre / ambiguës
+    # (la contrainte de sécurité : mieux vaut un refus qu'une réponse fausse présentée comme fiable).
+    cats = np.array([c for _, _, c in items])
+    risky = np.isin(cats, ["out_of_scope", "ambiguous"])
     tau_high = None
     for t in sorted(set(confs.tolist())):
         sel = confs >= t
-        if sel.sum() >= 3 and oks[sel].mean() >= TARGET_PRECISION:
+        risky_conf = float((confs[risky] >= t).mean()) if risky.any() else 0.0
+        if sel.sum() >= 3 and oks[sel].mean() >= TARGET_PRECISION and risky_conf <= MAX_RISKY_CONFIDENT:
             tau_high = t
             break
-    if tau_high is None:
-        tau_high = float(confs.max())
+    if tau_high is None:                      # contraintes incompatibles : on privilégie la sécurité
+        tau_high = next((t for t in sorted(set(confs.tolist())) if (confs[risky] >= t).mean() <= MAX_RISKY_CONFIDENT), float(confs.max()))
     # tau_low : plus grand seuil qui ne refuse à tort qu'au plus MAX_WRONGFUL_ABSTENTION des questions couvertes
     good = np.sort(confs[oks])
     tau_low = float(good[int(np.floor(MAX_WRONGFUL_ABSTENTION * len(good)))]) if len(good) else 0.0
     tau_low = min(tau_low, tau_high)
     info.update({"confidence": {"tau_high": round(float(tau_high), 4), "tau_low": round(float(tau_low), 4)},
                  "target_precision": TARGET_PRECISION, "max_wrongful_abstention": MAX_WRONGFUL_ABSTENTION,
+                 "max_risky_confident": MAX_RISKY_CONFIDENT,
+                 "dev_risky_confident_rate": float((confs[risky] >= tau_high).mean()) if risky.any() else None,
                  "dev_confident_precision": float(oks[confs >= tau_high].mean()) if (confs >= tau_high).any() else None,
                  "dev_confident_coverage": float((confs >= tau_high).mean())})
     (out_dir / "calibration.json").write_text(json.dumps(info, indent=2), encoding="utf-8")

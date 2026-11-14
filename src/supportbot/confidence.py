@@ -15,7 +15,7 @@ from .types import Candidate
 
 HUMAN_REQUEST = re.compile(
     r"\b(human|real person|human agent|support team|speak to (?:someone|a person)|talk to (?:someone|a person)|"
-    r"humain|conseiller|parler à quelqu|contacter le support|escalate)\b", re.I)
+    r"support agent|customer service|agent humain|humain|conseiller|parler à quelqu|contacter le support|escalate)\b", re.I)
 
 
 def assess(reranked: list[Candidate], tau_high: float, tau_low: float) -> tuple[str, float]:
