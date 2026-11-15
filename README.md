@@ -17,7 +17,7 @@ python scripts/download_corpus.py                        # 68 pages de doc (déj
 | `make calibrate PROFILE=hf` | calibre les seuils de confiance sur le jeu de **dev** |
 | `make eval PROFILE=hf` | mesures sur le jeu de **test** → `results/hf/` (tableaux CSV, figures, JSON) |
 | `make examples PROFILE=hf` | conversations d'exemple → `results/hf/conversations_*.json` |
-| `make app PROFILE=hf` | interface web Streamlit |
+| `make app PROFILE=hf` | interface web Streamlit « Lumen » |
 | `make chat PROFILE=hf` | conversation en terminal (`/escalade`, `/quit`) |
 | `make report PROFILE=hf REPO_URL=https://github.com/... AUTHORS="Nom Prénom"` | rapport PDF (pdflatex) |
 | `make test` | 17 tests (sans réseau) |
