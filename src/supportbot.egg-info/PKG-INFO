@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: supportbot
+Version: 1.0.0
+Summary: Chatbot de support technique : RAG + re-ranking + gestion de l'incertitude
+Requires-Python: >=3.10
